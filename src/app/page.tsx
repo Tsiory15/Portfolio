@@ -1,6 +1,6 @@
 "use client";
-
 import { useEffect } from "react";
+import Hero from "./pages/hero";
 
 export default function Home() {
   useEffect(() => {
@@ -10,5 +10,7 @@ export default function Home() {
     })();
   }, []);
 
-  return <div>Home</div>;
+  return <>
+  <Hero/>
+  </>;
 }
