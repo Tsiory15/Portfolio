@@ -29,7 +29,7 @@ useEffect(() =>{
             start:'top top',
             end:'+=4000',
             scrub:1,
-            pin:true
+            pin:true,
         }
     }).to('.back',{
         x:() => -(document.querySelector('.another_section').scrollWidth - document.documentElement.clientWidth)+'px',
