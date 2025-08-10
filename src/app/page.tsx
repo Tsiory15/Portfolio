@@ -1,6 +1,8 @@
 "use client";
+
 import { useEffect } from "react";
-import Hero from "./pages/hero";
+import Hero from '../app/pages/hero'
+import Menu from '../app/components/menu'
 
 export default function Home() {
   useEffect(() => {
@@ -11,6 +13,6 @@ export default function Home() {
   }, []);
 
   return <>
-  <Hero/>
+    <Hero/>
   </>;
 }
