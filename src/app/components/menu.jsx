@@ -102,7 +102,7 @@ export default function Menu(){
 }
     return(
         <div>
-             <div className="logo txt" onClick={() => {navigate('.main_container')}} style={{fontFamily:'poppins'}}><span className="logotxt">RT</span></div><span className='dot'>.</span>
+             <div className="logo txt" onClick={() => {navigate('.main_container')}} style={{fontFamily:'poppins'}}><span className="logotxt">Rt</span><span className='dot'>.</span></div>
                     <div className="menu">MENU</div>
                     <div className="menu_main_container">
                         <div className="menu_container">

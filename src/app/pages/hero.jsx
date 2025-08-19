@@ -10,16 +10,16 @@ import Link from 'next/link';
 import Menu from "../components/menu";
 import { useGSAP } from '@gsap/react';
 import { useEffect, useRef, useState } from 'react';
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious
-} from '@/components/ui/carousel'
+// import {
+//     Carousel,
+//     CarouselContent,
+//     CarouselItem,
+//     CarouselNext,
+//     CarouselPrevious
+// } from '@/components/ui/carousel'
 import  { CgClose } from 'react-icons/cg';
 import { FaGithub,FaPhone } from 'react-icons/fa';
-import { MailIcon } from 'lucide-react';
+// import { MailIcon } from 'lucide-react';
 
 const imgs = ['1','2','3','4','5','6','7','8','9','10','11','12','13']
 const scrn = ['r1','r2','r3']
@@ -28,7 +28,6 @@ export default function Hero(){
     const [pj2,setPj2] = useState(true)
     gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase,ScrollSmoother)
 useGSAP(() =>{
-    CustomEase.create('top','0.9,0,0.1,1')
     gsap.to('.services_text',{
         xPercent:-57,
         scrollTrigger:{
@@ -79,9 +78,9 @@ useGSAP(() =>{
             toggleActions:'play reverse play reverse',
         }
     }).to('.main_container',{
-        backgroundColor:'oklch(0.145 0 0)'
+        backgroundColor:'var(--background)'
     }).to('.project > span',{
-        color:'oklch(0.985 0 0)'
+        color:'var(--foreground)'
     }).to('.back',{
         opacity:1
     })
@@ -115,9 +114,11 @@ useGSAP(() =>{
     return (
         <div>
             <div className={pj1 ? 'hidecase' : 'showcase'}>
-                <div className="closebtn" onClick={()=>setPj1(true)}><CgClose></CgClose></div>
+                <div className="closebtn" onClick={()=>setPj1(true)}>
+                    <CgClose></CgClose>
+                    </div>
                     <div className="project_content">
-                    <Carousel className='slider' opts={{loop:true}}>
+                    {/* <Carousel className='slider' opts={{loop:true}}>
                         <CarouselContent>
                             {imgs.map((img,index) => (
                             <CarouselItem style={{height:'100%',display:'flex',alignItems:'center',justifyContent:'center'}} key={index}>
@@ -131,7 +132,7 @@ useGSAP(() =>{
                             ))}
                             
                         </CarouselContent>
-                    </Carousel>
+                    </Carousel> */}
                 </div>
                 <div className="description">
                     This project is an online training platform made for Zarahay doctorant community. <br /> It aims to provide members
@@ -151,23 +152,27 @@ useGSAP(() =>{
                 </div>
             </div>
             <div className={pj2 ? 'hidecase' : 'showcase'}>
-                <div className="closebtn" onClick={()=>setPj2(true)}> <CgClose></CgClose></div>
+                <div className="closebtn" onClick={()=>setPj2(true)}> 
+                    <CgClose></CgClose>
+                    </div>
                     <div className="project_content">
-                    <Carousel className='slider' opts={{loop:true}}>
-                        <CarouselContent>
-                            {scrn.map((img,index) => (
-                            <CarouselItem style={{width:'100%',height:'100%',display:'flex',alignItems:'center',justifyContent:'center'}} key={index}>
-                                <Image
-                            src={`/relaxation/${img}.png`}
-                            alt=''
-                            width={300}
-                            height={100}
-                            />
-                            </CarouselItem>
-                            ))}
+                        {
+                    //<Carousel className='slider' opts={{loop:true}}>
+                      //  <CarouselContent>
+                        //    {scrn.map((img,index) => (
+                          //  <CarouselItem style={{width:'100%',height:'100%',display:'flex',alignItems:'center',justifyContent:'center'}} key={index}>
+                            //    <Image
+                           // src={`/relaxation/${img}.png`}
+                           // alt=''
+                           // width={300}
+                           // height={100}
+                           // />
+                           // </CarouselItem>
+                          //  ))}
                             
-                        </CarouselContent>
-                    </Carousel>
+                       // </CarouselContent>
+                   // </Carousel> */
+                   }
                 </div>
                 <div className="description">
                     This project is a mobile application designed to help users reduce stress, <br />
@@ -281,7 +286,7 @@ useGSAP(() =>{
                     <div className="contact">
                         <Link href='https://github.com/Tsiory15' className='git'><FaGithub size={30}></FaGithub>Tsiory15</Link>
                         <p className='git'><FaPhone></FaPhone>034 48 967 23</p>
-                        <p className='git'><MailIcon size={30}></MailIcon>raphaeltsiory15@gmail.com</p>
+                        {/* <p className='git'><MailIcon size={30}></MailIcon>raphaeltsiory15@gmail.com</p> */}
                     </div>
                 </div>
             </div>     
