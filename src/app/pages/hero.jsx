@@ -2,22 +2,19 @@
 
 import './hero.css'
 import gsap from "gsap";
-import { ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase, ScrollSmoother} from "gsap/all";
+import { ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase, ScrollSmoother,SplitText} from "gsap/all";
 import Image from 'next/image';
 import Pic from '../../../public/Leonardo_Phoenix_10_A_person_with_a_futuristic_and_focused_exp_2.jpg'
 import Pic2 from '../../../public/Leonardo_Phoenix_10_A_person_with_a_futuristic_and_focused_exp_3.jpg'
-import Link from 'next/link';
 import Menu from "../components/menu";
 import { useGSAP } from '@gsap/react';
-import { FaGithub,FaPhone } from 'react-icons/fa';
-// import { MailIcon } from 'lucide-react';
 
 export default function Hero(){
-    
-    gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase,ScrollSmoother)
+gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,ScrollSmoother,SplitText)
+
 useGSAP(() =>{
     gsap.to('.services_text',{
-        xPercent:-57,
+        xPercent:-55,
         scrollTrigger:{
             trigger:'.main_container',
             start:'top top',
@@ -25,54 +22,57 @@ useGSAP(() =>{
             scrub:3,
         }
     })
-    gsap.timeline({
+    gsap.to('.back',{
         scrollTrigger:{
             trigger:'.another_section',
             start:'top top',
             end:'+=3300',
             scrub:1,
             pin:true,
-        }
-    }).to('.back',{
-        x:() => -(document.querySelector('.another_section').scrollWidth - document.documentElement.clientWidth)+'px',
+        },
+         x:() => -(document.querySelector('.another_section').scrollWidth - document.documentElement.clientWidth)+'px',
         duration:1,
         ease:'none',
     })
-    gsap.timeline({
+    gsap.to('.itext',{
         scrollTrigger:{
             trigger:'.intro',
             start:'top top',
             end:'+=500',
             scrub:true
-        }
-    }).to('.itext',{
+        },
         ease:'power1.out',
         yPercent:100,
         opacity:0
     })
-    gsap.to('.images',{
-        scrollTrigger:{
-            trigger:'.intro',
-            start:'top top',
-            scrub:3
-        },
-        yPercent:-10
-    })
-    gsap.timeline({
+    gsap.to('.back',{
         scrollTrigger:{
             trigger:'.trigger',
             start:'top top',
             end:'+=2700',
             toggleActions:'play reverse play reverse',
-        }
-    }).to('.main_container',{
-        backgroundColor:'var(--background)'
-    }).to('.project > span',{
-        color:'var(--foreground)'
-    }).to('.back',{
+        },
         opacity:1
     })
-    gsap.timeline({
+    const tl = gsap.timeline({
+        scrollTrigger:{
+            trigger:'.trigger',
+            start:'top top',
+            end:'+=2700',
+            toggleActions:'play reverse play reverse'
+        },
+    })
+    tl.to('.another_section',{
+        backgroundColor:'var(--background)',
+        ease:'power1.inOut',
+        duration:0.1
+    })
+    tl.to('.project > span',{
+        color:'var(--foreground)',
+        ease:'power1.inOut',
+        duration:0.1
+    })
+    gsap.to('.pj',{
         scrollTrigger:{
             trigger:'.trigger',
             start:'top top',
@@ -80,9 +80,8 @@ useGSAP(() =>{
             scrub:2.5,
             pin:true,
             pinSpacing:false,
-        }
-    }).to('.pj',{
-        x:() => -(document.querySelector('.another_section').scrollWidth - document.documentElement.clientWidth)+'px',
+        },
+          x:() => -(document.querySelector('.another_section').scrollWidth - document.documentElement.clientWidth)+'px',
         duration:1,
         ease:'none',
     })
@@ -121,14 +120,13 @@ useGSAP(() =>{
                                 
                             </div>
                             <div className='text'>
-                                Hello, I'm Tsiory Raphaël a web developer.
-                                Passionate about creating modern, responsive, and user-friendly websites.
-                                <br />
-                               <br /> Skilled in HTML,CSS,JavaScript,React,Next js and Node.js and always eager to learn new technologies to push my limits
+                                Hello, I'm Tsiory Raphaël a web developer. Passionate about creating modern, responsive, and user-friendly websites.
+                                Skilled in HTML, CSS, JavaScript, React, Next js and Node.js and always eager to learn new technologies to push my limits.
                             </div>
                         </div>
                     </div>
                 </div>  
+                <div className="begin"></div>
                 <div className='trigger'></div>
                 <div className="another_section">
                         <div className='project'>
@@ -149,11 +147,12 @@ useGSAP(() =>{
                             className='image pji'
                             />
                         </div>
-                       <div className="project2 pj">
+                       <div className="project2 pj" id='smooth-wrapper'>
                         <Image
                             src={Pic2}
                             alt=''
                             className='image pji'
+                            id='smooth-content'
                             />
                              <div className="card">
                                 <p className='title'>Relaxation App</p>
@@ -188,18 +187,16 @@ useGSAP(() =>{
                         </div>
                     </div>
                 </div>  
-                <div className="another_container">
+                <div className="another_container" style={{marginTop:'-33%'}}>
                     <div className="contact_us">
                         CONTACT <br />ME.
                     </div>
                     <div className="contact">
-                        <Link href='https://github.com/Tsiory15' className='git'><FaGithub size={30}></FaGithub>Tsiory15</Link>
-                        <p className='git'><FaPhone></FaPhone>034 48 967 23</p>
-                        {/* <p className='git'><MailIcon size={30}></MailIcon>raphaeltsiory15@gmail.com</p> */}
+                        
                     </div>
                 </div>
             </div>     
             </div>      
-       </div>
+            </div>
     )
 }
