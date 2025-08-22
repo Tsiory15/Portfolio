@@ -10,11 +10,12 @@ import Menu from "../components/menu";
 import { useGSAP } from '@gsap/react';
 
 export default function Hero(){
-gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,ScrollSmoother,SplitText)
+gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase)
+CustomEase.create('slide','0.9,0,0.1,1')
 
 useGSAP(() =>{
     gsap.to('.services_text',{
-        xPercent:-55,
+        xPercent:-52,
         scrollTrigger:{
             trigger:'.main_container',
             start:'top top',
@@ -33,17 +34,6 @@ useGSAP(() =>{
          x:() => -(document.querySelector('.another_section').scrollWidth - document.documentElement.clientWidth)+'px',
         duration:1,
         ease:'none',
-    })
-    gsap.to('.itext',{
-        scrollTrigger:{
-            trigger:'.intro',
-            start:'top top',
-            end:'+=500',
-            scrub:true
-        },
-        ease:'power1.out',
-        yPercent:100,
-        opacity:0
     })
     gsap.to('.back',{
         scrollTrigger:{
@@ -97,6 +87,48 @@ useGSAP(() =>{
         onStop:() =>{
         gsap.to('.pj',{scaleX:1})}
     })
+    const intro = gsap.timeline({
+        scrollTrigger:{
+            trigger:'.intro',
+            start:'top top',
+            end:'+=3000',
+            scrub:2,
+        }
+    })
+    intro.to('.think',{
+        xPercent:50,
+        opacity:0,
+        duration:1,
+        ease:'power4.out',
+    })
+    .to('.code',{
+        xPercent:-100,
+        opacity:0,
+        duration:1,
+        ease:'power4.out'
+    },'<')
+    .to('.deploy',{
+        xPercent:100,
+        opacity:0,
+        duration:1,
+        ease:'power4.out'
+    },'<')
+    .to('.repeat',{
+        xPercent:-50,
+        opacity:0,
+        duration:1,
+        ease:'power4.out'
+    },'<')
+    .to('.pic',{
+        yPercent:100,
+        duration:3,
+        ease:'power3.out'
+    },'<')
+    .to('.pic2',{
+        yPercent:-50,
+        duration:7,
+        ease:'power3.out'
+    },'<')
 },[])
     return (
         <div>
@@ -105,8 +137,20 @@ useGSAP(() =>{
             <div className= "main_container">
                 <div className="hero_section">
                     <div className="intro">
-                        <div className="backdrop"></div>
-                        <div><p className='itext'>THINK.</p></div><div><p className='itext'>CODE.</p></div><div><p className='itext' >DEPLOY.</p></div>
+                        <div className="pic">
+                               <Image
+                            src={Pic}
+                            alt=''
+                            className='image'
+                            />
+                        </div><div className="pic2">
+                               <Image
+                            src={Pic2}
+                            alt=''
+                            className='image'
+                            />
+                        </div>
+                        <span className='introtexte'><span className='itext think'>THINK.</span><span className='code itext'> CODE. </span><span className='deploy itext'>DEPLOY.</span><span className='repeat itext'>REPEAT.</span></span>
                     </div>
 
                     <div className="service_container">
@@ -117,10 +161,10 @@ useGSAP(() =>{
                         </div>
                         <div className="about" id='about'>
                              <div>
-                                
+                              
                             </div>
                             <div className='text'>
-                                Hello, I'm Tsiory Raphaël a web developer. Passionate about creating modern, responsive, and user-friendly websites.
+                                I'm Tsiory Raphaël a web developer. Passionate about creating modern, responsive, and user-friendly websites.
                                 Skilled in HTML, CSS, JavaScript, React, Next js and Node.js and always eager to learn new technologies to push my limits.
                             </div>
                         </div>

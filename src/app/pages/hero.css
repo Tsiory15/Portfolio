@@ -2,19 +2,6 @@
 .main_container{
   background-color: var(--foreground);
 }
-.image_contain{
-    overflow: hidden;
-    position: absolute;
-    height: 80vh;
-    width: 55vw;
-    right: 0;
-    top: 0;
-}
-.img{
-  object-fit: cover;
-  /* height: 100%; */
-  width: 100%;
-}
 .hero_section{
   height: 177vh;
   width: 100%;
@@ -23,20 +10,48 @@
 .intro{
   display: flex;
   justify-content: flex-end;
-  /* align-items: flex-end; */
   position: sticky;
-  font-size: 130px;
+  font-size: 110px;
+  line-height:85px;
   top: 0;
   left: 0;
-  line-height: 105px;
-  height: 45%;
-  /* padding: 1rem 0; */
+  height: 47%;
   flex-direction: column;
-  /* background: url('../../../public/IMG_20250719_110242.jpg'); */
   background-size: cover;
-}
-.intro > div{
+  align-items: center;
+  mix-blend-mode: difference;
   overflow: hidden;
+}
+.introtexte{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  mix-blend-mode: difference;
+}
+.pic{
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  bottom: 12%;
+  left: 10%;
+  height: 70vh;
+  width: 28vw;
+}
+.pic2{
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  right: 10%;
+  bottom: 4%;
+  height: 70vh;
+  width: 28vw;
+}
+.code{
+  margin-left: 25%;
+}
+.deploy{
+  margin-left: 10%;
 }
 .dot{
   line-height: 0;
@@ -66,8 +81,8 @@
   z-index: 3;
   display: flex;
   color: rgb(255, 255, 255);
-  line-height: 145px;
-  font-size: 140px;
+  line-height: 120px;
+  font-size: 130px;
   color: var(--background);
   /* font-style: italic; */
 }
@@ -78,17 +93,19 @@
   color: var(--background);
   font-size: 30px;
   padding: 3rem;
+  font-family: arial;
 }
 .text{
   font-size: 21px;
   text-align: justify;
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   flex-direction: column;
   color: var(--background);
-  font-family: monospace;
+  font-family: helvetica;
   line-height: 35px;
   color: var(--background);
+  padding: 0 3rem;
 }
 .image_container{
   position: absolute;
@@ -162,7 +179,6 @@
 }
 .pj{
   position: absolute;
-  /* overflow: hidden; */
   height: 400px;
   width: max-content;
   cursor: pointer;
@@ -180,7 +196,6 @@
   position: relative;
   height: 100vh;
   padding: 5rem 3rem;
-  /* background: url('../../../public/IMG_20250719_110242.jpg'); */
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -191,29 +206,13 @@
   font-size: 150px;
   line-height: 120px;
 }
-.backdrop{
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  z-index: -1;
-  /* background-image: linear-gradient(to left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.726)); */
-}
 .card{
   position: absolute;
   bottom:-10%;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
 }
 .title{
   font-size: 20px;
-  font-family: monospace;
-}
-.git{
-  display: flex;
-  align-items: center ;
-  /* justify-content: center; */
-  width: fit-content;
-  gap: 1rem;
-  margin: 1rem;
+  font-weight: bold;
 }
