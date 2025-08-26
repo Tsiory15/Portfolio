@@ -1,10 +1,15 @@
-
+.base_container{
+  display: none;
+}
 .main_container{
+  /* overflow: hidden;
+  height: 0; */
+  position: relative;
   background-color: var(--foreground);
+  opacity: 0;
 }
 .hero_section{
-  height: 177vh;
-  width: 100%;
+  height: 200vh;  
   background-color: var(--background);
 }
 .intro{
@@ -15,7 +20,7 @@
   line-height:85px;
   top: 0;
   left: 0;
-  height: 47%;
+  height: 50%;
   flex-direction: column;
   background-size: cover;
   align-items: center;
@@ -25,7 +30,7 @@
 .introtexte{
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   height: 100%;
   mix-blend-mode: difference;
 }
@@ -33,19 +38,20 @@
   z-index: -1;
   overflow: hidden;
   position: absolute;
-  bottom: 12%;
-  left: 10%;
+  /* bottom: 12%; */
+  top: 10%;
+  left: 17%;
   height: 70vh;
-  width: 28vw;
+  width: 20vw;
 }
 .pic2{
   z-index: -1;
   overflow: hidden;
   position: absolute;
-  right: 10%;
-  bottom: 4%;
+  right: 17%;
+  bottom: 10%;
   height: 70vh;
-  width: 28vw;
+  width: 20vw;
 }
 .code{
   margin-left: 25%;
@@ -62,28 +68,30 @@
   color: var(--background);
   position: absolute;
   display: grid;
-  grid-template-rows:1fr 2fr;
+  grid-template-rows:repeat(2,1fr);
   height: 100vh;
   background-color: var(--foreground);
 }
 .services{
   overflow: hidden;
-  white-space: nowrap;
   display: flex;
   gap: 5.5rem;
   align-items: center;
   line-height: initial;
   height: fit-content;
-  /* padding: 0 0.5rem; */
+  height: 100%;
 }
 .services_text{
   position: sticky;
   z-index: 3;
   display: flex;
+  align-items: center;
   color: rgb(255, 255, 255);
-  line-height: 120px;
-  font-size: 130px;
+  line-height: 9vw;
+  font-size: 8vw;
   color: var(--background);
+  white-space: nowrap;
+  padding:0 4rem;
   /* font-style: italic; */
 }
 
@@ -92,14 +100,17 @@
   grid-template-columns: repeat(2,1fr);
   color: var(--background);
   font-size: 30px;
-  padding: 3rem;
+  padding:0 3rem;
   font-family: arial;
+}
+.about > div{
+  position: relative;
 }
 .text{
   font-size: 21px;
   text-align: justify;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
   color: var(--background);
   font-family: helvetica;
@@ -123,34 +134,35 @@
 .back{
   position: relative;
   height: 100%;
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(5,1fr);
   opacity: 0;
+  width: max-content;
 }
 .another_section{
   position: relative;
   height: 100vh;
-  overflow: hidden;
+  width: 100vw;
   color: var(--background);
-  /* background-color: var(--foreground); */
+
 }
 .project{
   height: 100%;
   width: 100%;
   position: absolute;
-  font-size: 250px;
+  font-size: 20vw;
   top: 0;
   left:0;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   z-index: 1;
 }
 .section{
   display: grid;
-  grid-template-columns: repeat(3,1fr);
   width: 100vw;
+  grid-template-columns: repeat(2,1fr);
+  /* border-right: 1px solid rgba(255, 255, 255, 0.192); */
 }
 .section > div{
   border-right: 1px solid rgba(255, 255, 255, 0.192);
@@ -192,19 +204,18 @@
   z-index: 0;
   background-color: var(--foreground);
 }
-.another_container{
+.contact_main_container{
   position: relative;
   height: 100vh;
-  padding: 5rem 3rem;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
+  display: grid;
+  grid-template-rows: repeat(2,1fr);
   background-color: var(--background);
 }
-.contact_us{
-  color: var(--foreground);
-  font-size: 150px;
-  line-height: 120px;
+.another_container{
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 .card{
   position: absolute;
@@ -215,4 +226,81 @@
 .title{
   font-size: 20px;
   font-weight: bold;
+  color: var(--foreground);
+}
+.bar{
+  width: 5vw;
+  height: 9px;
+  margin:0 1.5rem;
+  background-color: var(--background);
+}
+.contact,.contact_me{
+  font-size: 20px;
+  /* font-weight: bold; */
+}
+.link_contact{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: fit-content;
+  color: rgb(167, 167, 167);
+  gap: 1rem;
+}
+.link_container{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.menu_link:hover .icon{
+  transform: rotate(0);
+  transition: 0.2s;
+  color: rgb(138, 138, 138);
+}
+.contact_container{
+  display: flex;
+  height: fit-content;
+  padding: 3rem 7rem;
+} 
+.talk{
+  padding: 2rem 3rem;
+}
+.contact_me{
+  height: 100%;
+  display: flex;
+  padding: 0 3rem;
+  font-size: 100px;
+  line-height: 80px;
+  padding-top: 7rem;
+  background-color: var(--foreground);
+  color: var(--background);
+}
+.scroll{
+  position: absolute;
+  bottom: 10%;
+  font-size: 25px;
+  color: var(--foreground);
+}
+@media (max-width:985) {
+  .intro{
+    font-size: 70px;
+    line-height: 55px;
+  }
+  .about{
+    display: flex;
+  }
+}
+@media (max-width:630) {
+  .main_container{
+    display: none;
+  }
+  .base_container{
+    display: initial;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--foreground);
+    background-color: var(--background);
+  }
 }

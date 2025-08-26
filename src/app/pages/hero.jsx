@@ -7,7 +7,11 @@ import Image from 'next/image';
 import Pic from '../../../public/Leonardo_Phoenix_10_A_person_with_a_futuristic_and_focused_exp_2.jpg'
 import Pic2 from '../../../public/Leonardo_Phoenix_10_A_person_with_a_futuristic_and_focused_exp_3.jpg'
 import Menu from "../components/menu";
+import Splash from '../pages/splash'
 import { useGSAP } from '@gsap/react';
+import {FaPhone,FaLocationPin,FaEnvelope,FaChevronDown} from 'react-icons/fa6'
+
+
 
 export default function Hero(){
 gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase)
@@ -15,12 +19,12 @@ CustomEase.create('slide','0.9,0,0.1,1')
 
 useGSAP(() =>{
     gsap.to('.services_text',{
-        xPercent:-52,
+        xPercent:-53,
         scrollTrigger:{
             trigger:'.main_container',
-            start:'top top',
-            end:'+=550',
-            scrub:3,
+            start:'+=300',
+            end:'+=700',
+            scrub:2,
         }
     })
     gsap.to('.back',{
@@ -75,23 +79,11 @@ useGSAP(() =>{
         duration:1,
         ease:'none',
     })
-    Observer.create({
-        target:'.project',
-        type:'wheel,touch',
-        onUp:() =>{
-            gsap.to('.pj',{scaleX:1.05})
-        },
-        onDown:() =>{
-            gsap.to('.pj',{scaleX:1.05})
-        },
-        onStop:() =>{
-        gsap.to('.pj',{scaleX:1})}
-    })
     const intro = gsap.timeline({
         scrollTrigger:{
             trigger:'.intro',
             start:'top top',
-            end:'+=3000',
+            end:'+=2000',
             scrub:2,
         }
     })
@@ -102,39 +94,52 @@ useGSAP(() =>{
         ease:'power4.out',
     })
     .to('.code',{
-        xPercent:-100,
+        xPercent:-70,
         opacity:0,
         duration:1,
         ease:'power4.out'
     },'<')
     .to('.deploy',{
-        xPercent:100,
+        xPercent:40,
         opacity:0,
         duration:1,
         ease:'power4.out'
     },'<')
     .to('.repeat',{
-        xPercent:-50,
+        xPercent:-100,
         opacity:0,
         duration:1,
         ease:'power4.out'
     },'<')
     .to('.pic',{
-        yPercent:100,
+        yPercent:-60,
         duration:3,
         ease:'power3.out'
     },'<')
     .to('.pic2',{
-        yPercent:-50,
+        yPercent:60,
         duration:7,
         ease:'power3.out'
     },'<')
+    .to('.scroll',{
+        yPercent:-100,
+        ease:'power3.out',
+        opacity:0
+    },'<')
+    gsap.to('.scroll',{
+        y:'-=10',
+        repeat:-1,
+        yoyo:true,
+        duration:1,
+        yoyoEase:'sine'
+    })
 },[])
     return (
         <div>
-            <Menu/>
-            <div>
+            <Splash/>
+            <div className="base_container">Unavailable</div>
             <div className= "main_container">
+                <Menu/>
                 <div className="hero_section">
                     <div className="intro">
                         <div className="pic">
@@ -151,12 +156,12 @@ useGSAP(() =>{
                             />
                         </div>
                         <span className='introtexte'><span className='itext think'>THINK.</span><span className='code itext'> CODE. </span><span className='deploy itext'>DEPLOY.</span><span className='repeat itext'>REPEAT.</span></span>
+                        <span className='scroll'><FaChevronDown/></span>
                     </div>
-
                     <div className="service_container">
                         <div className="services">
                             <div className="services_text">
-                                TURNING IDEAS INTO WEB EXPERIENCES
+                                TURNING IDEAS INTO <div className='bar'></div> WEB EXPERIENCES
                             </div>
                         </div>
                         <div className="about" id='about'>
@@ -165,7 +170,7 @@ useGSAP(() =>{
                             </div>
                             <div className='text'>
                                 I'm Tsiory Raphaël a web developer. Passionate about creating modern, responsive, and user-friendly websites.
-                                Skilled in HTML, CSS, JavaScript, React, Next js and Node.js and always eager to learn new technologies to push my limits.
+                                Skilled in HTML, CSS, gsap, JavaScript, React, Next js and Node.js and always eager to learn new technologies to push my limits.
                             </div>
                         </div>
                     </div>
@@ -207,40 +212,43 @@ useGSAP(() =>{
                         <div className="section">
                             <div></div>
                             <div></div>
-                            <div></div>
                         </div>
                         <div className="section">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div className="section">
-                            <div></div>
                             <div></div>
                             <div></div>
                         </div>
                         <div className="section">
                             <div></div>
                             <div></div>
-                            <div></div>
                         </div>
                         <div className="section">
                             <div></div>
+                            <div></div>
+                        </div>
+                        <div className="section">
                             <div></div>
                             <div></div>
                         </div>
                     </div>
                 </div>  
-                <div className="another_container" style={{marginTop:'-33%'}}>
-                    <div className="contact_us">
-                        CONTACT <br />ME.
+                <div className="contact_main_container" style={{marginTop:'-70vh'}}>
+                    <div className="contact_me">
+                        CONTACT <br /> ME.
                     </div>
-                    <div className="contact">
-                        
+                <div className="another_container">
+                    <div className="talk" style={{fontSize:'40px'}}>
+                        Let's Talk !
                     </div>
+                    <div className="contact_container">
+                        <div className='link_container'>
+                            <div className="link_contact"> <FaLocationPin/>Antananarivo Madagascar</div>
+                            <div className="link_contact"> <FaEnvelope/> raphaeltsiory15@gmail.com</div>
+                            <div className="link_contact"> <FaPhone/> 034 48 967 23</div>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>     
             </div>      
-            </div>
     )
 }

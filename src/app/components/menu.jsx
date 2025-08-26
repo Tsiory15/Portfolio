@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase} from "gsap/all";
 import { useGSAP } from '@gsap/react';
 import '../components/menu.css'
+import {FaArrowRight} from 'react-icons/fa6'
 export default function Menu(){
     gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase)
     useGSAP(()=>{
@@ -19,13 +20,13 @@ export default function Menu(){
                 height:'100vh',
                 padding:'4rem 0',
                 duration:0.7,
-                delay:0.2,
+                delay:0.3,
                 ease:'slide'
             })
             gsap.to('.menu_main_container',{
                 height:'40vh',
                 duration:0.7,
-                delay:0.2,
+                delay:0.6,
                 ease:'slide'
             })
             gsap.fromTo('.link',{
@@ -59,7 +60,7 @@ export default function Menu(){
             gsap.to('.menu_back',{
                 height:'0%',
                 padding:0,
-                delay:1,
+                delay:1.4,
                 ease:'slide'
             })
             gsap.to('.link',{
@@ -92,7 +93,7 @@ export default function Menu(){
             gsap.to('.menu_back',{
                 height:'0%',
                 padding:0,
-                delay:1,
+                delay:1.4,
                  ease:'slide'
             })
             gsap.to('.link',{
@@ -107,6 +108,37 @@ export default function Menu(){
         }
     })
     })
+    Observer.create({
+        target:'.main_container',
+        onDown:() => {
+            gsap.to('.menu',{
+                yPercent:-200,
+                duration:0.3,
+                ease:'power4.out',
+                overwrite:true
+            })
+            gsap.to('.logo',{
+                yPercent:-200,
+                duration:0.3,
+                ease:'power4.out',
+                overwrite:true
+            })
+        },
+        onUp:() => {
+            gsap.to('.menu',{
+                yPercent:0,
+                duration:0.7,
+                ease:'power4.out',
+                overwrite:true
+            })
+            gsap.to('.logo',{
+                yPercent:0,
+                duration:0.7,
+                ease:'power4.out',
+                overwrite:true
+            })
+        }
+    })
     },[])
     const navigate = (link) => {
     gsap.to(window,{
@@ -116,11 +148,11 @@ export default function Menu(){
 }
     return(
         <div>
-             <div className="logo txt" onClick={() => {navigate('.main_container')}} style={{fontFamily:'poppins'}}><span className="logotxt">RT</span><span className='dot'>.</span></div>
+             <div className="logo txt" onClick={() => {gsap.to(window,{scrollTo:'.main_container',duration:1.5})}} style={{fontFamily:'Trebuchet MS'}}><span className="logotxt">RT</span><span className='dot'>.</span></div>
                     <div className="menu">MENU</div>
                     <div className="menu_main_container">
                         <div className="copyright">
-                        Tsiory Raphaël <br />
+                        RAPHAEL <br /> WEB DEVELOPER
                         </div>
                         <div className="menu_container">
                             <span className='close'>CLOSE</span>
@@ -131,9 +163,9 @@ export default function Menu(){
                     </div>
                     <div className="menu_back">
                         <div style={{fontSize:'30px'}}>
-                            Dribbble <br />
-                            Behance <br />
-                            Github
+                           <div className="menu_link"> LinkdIn <FaArrowRight className='icon'/></div>
+                            <div className="menu_link">Facebook <FaArrowRight className='icon'/></div> 
+                            <div className="menu_link">Github <FaArrowRight className='icon'/></div>
                         </div>
                         <div>2025 &copy;</div>
                     </div>
