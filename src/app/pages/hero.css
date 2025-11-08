@@ -252,7 +252,6 @@
 .link_contact{
   display: flex;
   align-items: center;
-  cursor: pointer;
   width: fit-content;
   color: rgb(167, 167, 167);
   gap: 1rem;

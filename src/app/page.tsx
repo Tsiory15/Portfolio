@@ -1,17 +1,23 @@
 "use client";
 
-import { useEffect } from "react";
-import Hero from '../app/pages/hero'
+import { useEffect, useRef } from "react";
+import Hero from './pages/hero'
 
 export default function Home() {
+  const scrollRef = useRef(null)
   useEffect(() => {
     (async () => {
       const Locomotivescroll = (await import("locomotive-scroll")).default;
-      const locomotiveScroll = new Locomotivescroll();
+      new Locomotivescroll({
+        el:scrollRef.current,
+        smooth:true
+      }as any);
     })();
   }, []);
 
-  return <>
-    <Hero/>
-  </>;
+  return (
+    <div ref={scrollRef} data-scroll-container>
+      <Hero/>
+    </div>
+  )
 }

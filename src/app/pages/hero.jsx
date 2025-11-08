@@ -255,7 +255,7 @@ useGSAP(() =>{
                         <div className='link_container'>
                             <div className="link_contact"> <FaLocationPin/>Antananarivo Madagascar</div>
                             <div className="link_contact"> <FaEnvelope/> raphaeltsiory15@gmail.com</div>
-                            <div className="link_contact"> <FaPhone/> 034 48 967 23</div>
+                            <div className="link_contact"> <FaPhone/> 034 48 967 23/</div>
                         </div>
                     </div>
                 </div>
