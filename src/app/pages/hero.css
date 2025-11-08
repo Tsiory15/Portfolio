@@ -284,7 +284,7 @@
   font-size: 25px;
   color: var(--foreground);
 }
-@media (max-width:1020) {
+@media (max-width:1020px) {
   .base_container{
     display: flex;
     align-items: center;
