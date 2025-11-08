@@ -160,7 +160,7 @@ useGSAP(() =>{
     return (
         <div>
             <Splash/>
-            <div className="base_container">Unavailable</div>
+            <div className="base_container">Unavailable yet for this device</div>
             <div className= "main_container">
                 <Menu/>
                 <div className="hero_section">

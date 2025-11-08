@@ -284,38 +284,15 @@
   font-size: 25px;
   color: var(--foreground);
 }
-@media (max-width:985) {
-  .intro{
-    font-size: 70px;
-    line-height: 55px;
-  }
-  .about{
+@media (max-width:1020) {
+  .base_container{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
   }
-  .pj{
-    width: 40vw;
-    height: 30vh;
-  }
-}
-@media (max-width:768) {
-  .pic,.pic2{
-    width: 30vw;
-  }
-  .pj{
-    width: 40vw;
-    height: 30vh;
-  }
-}
-@media (max-width:425) {
-  .pic,.pic2{
-    height: 70vw;
-    width: 70vw;
-  }
-  .services_text{
-    font-size: 20vw;
-  }
-  .pj{
-    width: 60vw;
-    height: 30vh;
+  .main_container{
+    display: none;
   }
 }
