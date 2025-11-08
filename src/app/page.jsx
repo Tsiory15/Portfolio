@@ -11,7 +11,7 @@ export default function Home() {
       new Locomotivescroll({
         el:scrollRef.current,
         smooth:true
-      }as any);
+      });
     })();
   }, []);
 
