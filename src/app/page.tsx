@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Hero from '../app/pages/hero'
-import Menu from '../app/components/menu'
 
 export default function Home() {
   useEffect(() => {
