@@ -16,8 +16,8 @@
   display: flex;
   justify-content: flex-end;
   position: sticky;
-  font-size: 110px;
-  line-height:85px;
+  font-size: 8vw;
+  line-height:6vw;
   top: 0;
   left: 0;
   height: 50%;
@@ -169,7 +169,7 @@
   color: rgb(49, 49, 49);
   font-family:Poppins;
   font-weight: 100;
-  font-size: 60;
+  font-size: 5vw;
   opacity: 0;
 }
 .project > span{
@@ -184,12 +184,12 @@
   z-index: 4;
 }
 .project1{
-  left: 1500px;
+  left:110vw;
   z-index: 8;
 }
 .project2{
   width: 500px;
-  left: 3000px;
+  left: 200vw;
   z-index: 5;
 }
 .pj{
@@ -228,7 +228,7 @@
   justify-content: center;
 }
 .title{
-  font-size: 20px;
+  font-size: 2vw;
   font-family: Poppins ;
   /* font-weight: bold; */
   color: var(--foreground);
@@ -246,7 +246,6 @@
   background-color: var(--background);
 }
 .contact,.contact_me{
-  font-size: 20px;
   font-family: Poppins;
 }
 .link_contact{
@@ -255,6 +254,7 @@
   width: fit-content;
   color: rgb(167, 167, 167);
   gap: 1rem;
+  font-size: 1.5vw;
 }
 .link_container{
   display: flex;

@@ -32,7 +32,7 @@ useGSAP(() =>{
         scrollTrigger:{
             trigger:'.another_section',
             start:'top top',
-            end:'+=3300',
+            end:'+=3300vw',
             scrub:1,
             pin:true,
         },
@@ -44,7 +44,7 @@ useGSAP(() =>{
         scrollTrigger:{
             trigger:'.trigger',
             start:'top top',
-            end:'+=2700',
+            end:'+=2500',
             toggleActions:'play reverse play reverse',
         },
         opacity:1
@@ -53,7 +53,7 @@ useGSAP(() =>{
         scrollTrigger:{
             trigger:'.trigger',
             start:'top top',
-            end:'+=2600',
+            end:'+=2300vw',
             toggleActions:'play reverse play reverse'
         },
     })
@@ -139,20 +139,19 @@ useGSAP(() =>{
         yoyoEase:'sine'
     })
     SplitText.create('.text',{
-        type:'lines',
-        mask:'lines',
+        type:'words',
+        mask:'words',
         autoSplit:true,
         onSplit:(self) =>{
-            gsap.from(self.lines,{
+            gsap.from(self.words,{
                 scrollTrigger:{
                     trigger:'.deploy',
                     start:'top top',
                     end:'+=200',
                 },
                 y:100,
-                stagger:0.3,
+                stagger:0.1,
                 duration:1,
-                skewY:7
             })
         }
     })
@@ -248,7 +247,7 @@ useGSAP(() =>{
                         CONTACT <br /> ME.
                     </div>
                 <div className="another_container">
-                    <div className="talk" style={{fontSize:'3.5vw'}}>
+                    <div className="talk" style={{fontSize:'3.5vw',lineHeight:'3.5vw'}}>
                         Let's Talk !
                     </div>
                     <div className="contact_container">
