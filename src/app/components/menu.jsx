@@ -12,20 +12,20 @@ export default function Menu(){
         onClick:() => {
             gsap.to('.menu_container',{
                 height:'40vh',
-                duration:0.7,
+                duration:0.5,
                 delay:0.2,
                 ease:'slide'
             })
             gsap.to('.menu_back',{
                 height:'100vh',
                 padding:'4rem 0',
-                duration:0.7,
+                duration:0.5,
                 delay:0.3,
                 ease:'slide'
             })
             gsap.to('.menu_main_container',{
                 height:'40vh',
-                duration:0.7,
+                duration:0.5,
                 delay:0.6,
                 ease:'slide'
             })
@@ -33,14 +33,12 @@ export default function Menu(){
                yPercent:100, 
                stagger:0.3,
                ease:'slide',
-               duration:0.7,
-               delay:0.3
             },{
                 yPercent:0,
                 stagger:0.3,
                ease:'slide',
-               duration:0.7,
-               delay:0.5
+               duration:0.3,
+               delay:0.7
             })
         }
     })
@@ -111,29 +109,17 @@ export default function Menu(){
     Observer.create({
         target:'.main_container',
         onDown:() => {
-            gsap.to('.menu',{
+            gsap.to(['.menu','.logo'],{
                 yPercent:-200,
-                duration:0.3,
-                ease:'power4.out',
-                overwrite:true
-            })
-            gsap.to('.logo',{
-                yPercent:-200,
-                duration:0.3,
+                duration:1,
                 ease:'power4.out',
                 overwrite:true
             })
         },
         onUp:() => {
-            gsap.to('.menu',{
+            gsap.to(['.menu','.logo'],{
                 yPercent:0,
-                duration:0.7,
-                ease:'power4.out',
-                overwrite:true
-            })
-            gsap.to('.logo',{
-                yPercent:0,
-                duration:0.7,
+                duration:1,
                 ease:'power4.out',
                 overwrite:true
             })
@@ -167,7 +153,7 @@ export default function Menu(){
                             <div className="menu_link">Facebook <FaArrowRight className='icon'/></div> 
                             <div className="menu_link">Github <FaArrowRight className='icon'/></div>
                         </div>
-                        <div>2025 &copy;</div>
+                        <div>&copy; 2025</div>
                     </div>
         </div>
     )

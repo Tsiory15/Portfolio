@@ -42,9 +42,11 @@ export default function Splash (){
        })
        .to('.main_container',{
         ease:'power4.out',
-        duration:2,
+        duration:5,
+        delay:0.3,
         opacity:1,
-       })
+        height:'max-content',
+       },'<')
     },[])
     return(
         <div>

@@ -2,11 +2,11 @@
   display: none;
 }
 .main_container{
-  /* overflow: hidden;
-  height: 0; */
   position: relative;
+  overflow: hidden;
   background-color: var(--foreground);
   opacity: 0;
+  height: 0;
 }
 .hero_section{
   height: 200vh;  
@@ -24,7 +24,6 @@
   flex-direction: column;
   background-size: cover;
   align-items: center;
-  mix-blend-mode: difference;
   overflow: hidden;
 }
 .introtexte{
@@ -38,7 +37,7 @@
   z-index: -1;
   overflow: hidden;
   position: absolute;
-  /* bottom: 12%; */
+  display: flex;
   top: 10%;
   left: 17%;
   height: 70vh;
@@ -68,7 +67,7 @@
   color: var(--background);
   position: absolute;
   display: grid;
-  grid-template-rows:repeat(2,1fr);
+  grid-template-rows:1fr 2fr;
   height: 100vh;
   background-color: var(--foreground);
 }
@@ -82,7 +81,6 @@
   height: 100%;
 }
 .services_text{
-  position: sticky;
   z-index: 3;
   display: flex;
   align-items: center;
@@ -91,32 +89,23 @@
   font-size: 8vw;
   color: var(--background);
   white-space: nowrap;
-  padding:0 4rem;
-  /* font-style: italic; */
 }
 
 .about{
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  color: var(--background);
-  font-size: 30px;
-  padding:0 3rem;
-  font-family: arial;
+  grid-template-columns: 8fr 1fr;
+  padding:0 10vw;
+  font-family:Poppins;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 .about > div{
   position: relative;
 }
 .text{
-  font-size: 21px;
-  text-align: justify;
-  display: flex;
-  /* justify-content: center; */
-  flex-direction: column;
+  font-size: 2.25vw;
   color: var(--background);
-  font-family: helvetica;
-  line-height: 35px;
-  color: var(--background);
-  padding: 0 3rem;
 }
 .image_container{
   position: absolute;
@@ -127,15 +116,20 @@
   left: 10%;
 }
 .image{
+  height: 70vh;
+  width: 100%;
+  object-fit: cover;
+}
+.images{
   height: 100%;
   width: 100%;
   object-fit: cover;
+  box-shadow:15px 15px 30px var(--background);
 }
 .back{
   position: relative;
   height: 100%;
   display: flex;
-  grid-template-columns: repeat(5,1fr);
   opacity: 0;
   width: max-content;
 }
@@ -150,7 +144,7 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  font-size: 20vw;
+  font-size: 17.7vw;
   top: 0;
   left:0;
   display: flex;
@@ -162,16 +156,26 @@
   display: grid;
   width: 100vw;
   grid-template-columns: repeat(2,1fr);
-  /* border-right: 1px solid rgba(255, 255, 255, 0.192); */
 }
-.section > div{
-  border-right: 1px solid rgba(255, 255, 255, 0.192);
+.grid{
+  border-left: 2px solid rgb(39, 39, 39);
+  position: relative;
+  opacity: 0;
+}
+.number{
+  position: absolute;
+  top: 10;
+  left:20;
+  color: rgb(49, 49, 49);
+  font-family:Poppins;
+  font-weight: 100;
+  font-size: 60;
+  opacity: 0;
 }
 .project > span{
   line-height: 0;
   position: relative;
-    color: var(--background);
-    mix-blend-mode: difference;
+  font-family: Poppins;
 }
 .p,.r,.e{
   z-index: 7;
@@ -180,8 +184,7 @@
   z-index: 4;
 }
 .project1{
-  /* width: 850px; */
-  left: 1700px;
+  left: 1500px;
   z-index: 8;
 }
 .project2{
@@ -191,8 +194,8 @@
 }
 .pj{
   position: absolute;
-  height: 400px;
-  width: max-content;
+  height: 60vh;
+  width: 25vw;
   cursor: pointer;
 }
 .layer{
@@ -208,14 +211,15 @@
   position: relative;
   height: 100vh;
   display: grid;
-  grid-template-rows: repeat(2,1fr);
+  grid-template-rows: 1fr 4fr;
   background-color: var(--background);
 }
 .another_container{
   position: relative;
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: repeat(2,1fr);
+  padding: 4vw 8.5vw;
 }
 .card{
   position: absolute;
@@ -225,18 +229,25 @@
 }
 .title{
   font-size: 20px;
-  font-weight: bold;
+  font-family: Poppins ;
+  /* font-weight: bold; */
   color: var(--foreground);
 }
 .bar{
   width: 5vw;
   height: 9px;
-  margin:0 1.5rem;
+  margin:0 3rem;
+  background-color: var(--background);
+}
+.bars{
+  width: 5vw;
+  height: 9px;
+  margin-right: 3rem;
   background-color: var(--background);
 }
 .contact,.contact_me{
   font-size: 20px;
-  /* font-weight: bold; */
+  font-family: Poppins;
 }
 .link_contact{
   display: flex;
@@ -259,20 +270,14 @@
 .contact_container{
   display: flex;
   height: fit-content;
-  padding: 3rem 7rem;
+  /* padding: 0.5vw 20vw; */
 } 
-.talk{
-  padding: 2rem 3rem;
-}
 .contact_me{
-  height: 100%;
+  width: 100%;
   display: flex;
-  padding: 0 3rem;
-  font-size: 100px;
-  line-height: 80px;
-  padding-top: 7rem;
-  background-color: var(--foreground);
-  color: var(--background);
+  padding: 5vw 8vw;
+  font-size: 9vw;
+  line-height: 7vw;
 }
 .scroll{
   position: absolute;
@@ -288,19 +293,30 @@
   .about{
     display: flex;
   }
-}
-@media (max-width:630) {
-  .main_container{
-    display: none;
+  .pj{
+    width: 40vw;
+    height: 30vh;
   }
-  .base_container{
-    display: initial;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--foreground);
-    background-color: var(--background);
+}
+@media (max-width:768) {
+  .pic,.pic2{
+    width: 30vw;
+  }
+  .pj{
+    width: 40vw;
+    height: 30vh;
+  }
+}
+@media (max-width:425) {
+  .pic,.pic2{
+    height: 70vw;
+    width: 70vw;
+  }
+  .services_text{
+    font-size: 20vw;
+  }
+  .pj{
+    width: 60vw;
+    height: 30vh;
   }
 }

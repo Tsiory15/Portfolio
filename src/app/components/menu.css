@@ -114,3 +114,11 @@ width: fit-content;
   transition: 0.2s;
   color: rgb(138, 138, 138);
 }
+@media (max-width:425) {
+ .menu_main_container{
+  display: flex;
+ }
+ .copyright{
+  display: none;
+ }
+}

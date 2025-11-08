@@ -2,7 +2,7 @@
 
 import './hero.css'
 import gsap from "gsap";
-import { ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase, ScrollSmoother,SplitText} from "gsap/all";
+import { ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase,SplitText} from "gsap/all";
 import Image from 'next/image';
 import Pic from '../../../public/Leonardo_Phoenix_10_A_person_with_a_futuristic_and_focused_exp_2.jpg'
 import Pic2 from '../../../public/Leonardo_Phoenix_10_A_person_with_a_futuristic_and_focused_exp_3.jpg'
@@ -14,16 +14,17 @@ import {FaPhone,FaLocationPin,FaEnvelope,FaChevronDown} from 'react-icons/fa6'
 
 
 export default function Hero(){
-gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase)
+var number = 1
+gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase,SplitText)
 CustomEase.create('slide','0.9,0,0.1,1')
 
 useGSAP(() =>{
     gsap.to('.services_text',{
-        xPercent:-53,
+        xPercent:-52,
         scrollTrigger:{
             trigger:'.main_container',
-            start:'+=300',
-            end:'+=700',
+            start:'+=400',
+            end:'+=500',
             scrub:2,
         }
     })
@@ -52,7 +53,7 @@ useGSAP(() =>{
         scrollTrigger:{
             trigger:'.trigger',
             start:'top top',
-            end:'+=2700',
+            end:'+=2600',
             toggleActions:'play reverse play reverse'
         },
     })
@@ -64,14 +65,18 @@ useGSAP(() =>{
     tl.to('.project > span',{
         color:'var(--foreground)',
         ease:'power1.inOut',
+        textShadow:'15px 15px 8px rgba(0, 0, 0, 0.7)',
         duration:0.1
+    })
+    tl.to(['.number','.grid'],{
+        opacity:1
     })
     gsap.to('.pj',{
         scrollTrigger:{
             trigger:'.trigger',
             start:'top top',
-            end:'+=4000',
-            scrub:2.5,
+            end:'+=4100',
+            scrub:3,
             pin:true,
             pinSpacing:false,
         },
@@ -88,13 +93,13 @@ useGSAP(() =>{
         }
     })
     intro.to('.think',{
-        xPercent:50,
+        xPercent:80,
         opacity:0,
         duration:1,
         ease:'power4.out',
     })
     .to('.code',{
-        xPercent:-70,
+        xPercent:-40,
         opacity:0,
         duration:1,
         ease:'power4.out'
@@ -106,18 +111,18 @@ useGSAP(() =>{
         ease:'power4.out'
     },'<')
     .to('.repeat',{
-        xPercent:-100,
+        xPercent:-40,
         opacity:0,
         duration:1,
         ease:'power4.out'
     },'<')
     .to('.pic',{
-        yPercent:-60,
+        yPercent:100,
         duration:3,
         ease:'power3.out'
     },'<')
     .to('.pic2',{
-        yPercent:60,
+        yPercent:-60,
         duration:7,
         ease:'power3.out'
     },'<')
@@ -132,6 +137,24 @@ useGSAP(() =>{
         yoyo:true,
         duration:1,
         yoyoEase:'sine'
+    })
+    SplitText.create('.text',{
+        type:'lines',
+        mask:'lines',
+        autoSplit:true,
+        onSplit:(self) =>{
+            gsap.from(self.lines,{
+                scrollTrigger:{
+                    trigger:'.deploy',
+                    start:'top top',
+                    end:'+=200',
+                },
+                y:100,
+                stagger:0.3,
+                duration:1,
+                skewY:7
+            })
+        }
     })
 },[])
     return (
@@ -161,16 +184,14 @@ useGSAP(() =>{
                     <div className="service_container">
                         <div className="services">
                             <div className="services_text">
-                                TURNING IDEAS INTO <div className='bar'></div> WEB EXPERIENCES
+                               <div className="bars"></div> TURNING IDEAS INTO <div className='bar'></div> WEB EXPERIENCES <div className="bar"></div>
                             </div>
                         </div>
                         <div className="about" id='about'>
-                             <div>
-                              
-                            </div>
                             <div className='text'>
-                                I'm Tsiory Raphaël a web developer. Passionate about creating modern, responsive, and user-friendly websites.
-                                Skilled in HTML, CSS, gsap, JavaScript, React, Next js and Node.js and always eager to learn new technologies to push my limits.
+                                My name is Tsiory Raphaël a web developer. Passionate about creating modern, responsive, and user-friendly websites.Skilled in HTML, CSS, Gsap, JavaScript, React, Next js and Node.js and always eager to learn new technologies to push my limits.
+                            </div>
+                            <div>
                             </div>
                         </div>
                     </div>
@@ -186,57 +207,48 @@ useGSAP(() =>{
                             <span className='e'>E</span>
                             <span className='c'>C</span>
                             <span className='t'>T</span>
+                            <span className='s'>S</span>
                         <div className="project1 pj">
                             <div className="card">
-                                <p className='title'>Zarahay doctorant</p>
+                                <p className='title'>E-learning website</p>
                             </div>
-                        <Image
-                            src={Pic}
-                            alt=''
-                            className='image pji'
-                            />
+                                <Image
+                                src={Pic}
+                                alt=''
+                                className='images'
+                                />
                         </div>
-                       <div className="project2 pj" id='smooth-wrapper'>
+                       <div className="project2 pj">
                         <Image
                             src={Pic2}
                             alt=''
-                            className='image pji'
-                            id='smooth-content'
+                            className='images'
                             />
                              <div className="card">
-                                <p className='title'>Relaxation App</p>
+                                <p className='title'>Mobile App</p>
                             </div>
                         </div>
                     </div>
                     <div className="back">
-                        <div className="section">
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div className="section">
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div className="section">
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div className="section">
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div className="section">
-                            <div></div>
-                            <div></div>
-                        </div>
+                        {[...Array(5)].map((_,index)=>{
+                            return(
+                            <div className='section' key={index}>
+                                <div></div>
+                                <div className='grid'>
+                                    <div className='number'>
+                                        {'0'+number+++'.'}
+                                    </div>
+                                </div>
+                            </div>)
+                        })}
                     </div>
                 </div>  
-                <div className="contact_main_container" style={{marginTop:'-70vh'}}>
+                <div className="contact_main_container" style={{marginTop:'-30vh'}}>
                     <div className="contact_me">
                         CONTACT <br /> ME.
                     </div>
                 <div className="another_container">
-                    <div className="talk" style={{fontSize:'40px'}}>
+                    <div className="talk" style={{fontSize:'3.5vw'}}>
                         Let's Talk !
                     </div>
                     <div className="contact_container">
