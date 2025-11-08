@@ -24,7 +24,8 @@ width: fit-content;
 }
 .menu_container{
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
+  padding-top: 5vw;
   z-index: 11;
   height: 40vh;
   display: flex;
