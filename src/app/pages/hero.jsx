@@ -159,6 +159,7 @@ useGSAP(() =>{
 },[])
     return (
         <div>
+            <meta name='viewport' content='width=device.width,initial-scale=1' />
             <Splash/>
             <div className="base_container">Unavailable yet for this device</div>
             <div className= "main_container">
