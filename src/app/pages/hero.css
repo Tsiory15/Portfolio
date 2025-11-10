@@ -306,7 +306,14 @@
     text-shadow: initial;
   }
   .text{
-    font-size: 7vw;
+    font-size: 6vw;
+  }
+  .about{
+    align-items: baseline;
+  }
+  .link_contact{
+    font-size: 3vw;
+    gap: 0.8rem;
   }
 }
 /* @media (max-width:1020px) {
