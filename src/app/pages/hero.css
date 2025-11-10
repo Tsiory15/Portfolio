@@ -289,7 +289,7 @@
     width: 25vw;
   }
 }
-@media (max-width:475) {
+@media (max-width:768px) {
   .intropic{
     height: 50vw;
     width: 50vw;

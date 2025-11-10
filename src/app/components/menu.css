@@ -107,7 +107,7 @@ width: fit-content;
   transition: 0.2s;
   color: rgb(138, 138, 138);
 }
-@media (max-width:475) {
+@media (max-width:1024px) {
  .link{
   line-height: 5vw;
  }
