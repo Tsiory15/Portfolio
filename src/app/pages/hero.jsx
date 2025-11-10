@@ -20,7 +20,7 @@ CustomEase.create('slide','0.9,0,0.1,1')
 
 useGSAP(() =>{
     gsap.to('.services_text',{
-        xPercent:-52,
+        xPercent:-48,
         scrollTrigger:{
             trigger:'.main_container',
             start:'+=400',
@@ -53,7 +53,7 @@ useGSAP(() =>{
         scrollTrigger:{
             trigger:'.trigger',
             start:'top top',
-            end:'+=2300vw',
+            end:'+=2350vw',
             toggleActions:'play reverse play reverse'
         },
     })
@@ -164,13 +164,13 @@ useGSAP(() =>{
                 <Menu/>
                 <div className="hero_section">
                     <div className="intro">
-                        <div className="pic">
+                        <div className="pic intropic">
                                <Image
                             src={Pic}
                             alt=''
                             className='image'
                             />
-                        </div><div className="pic2">
+                        </div><div className="pic2 intropic">
                                <Image
                             src={Pic2}
                             alt=''
@@ -180,7 +180,8 @@ useGSAP(() =>{
                         <span className='introtexte'><span className='itext think'>THINK.</span><span className='code itext'> CODE. </span><span className='deploy itext'>DEPLOY.</span><span className='repeat itext'>REPEAT.</span></span>
                         <span className='scroll'><FaChevronDown/></span>
                     </div>
-                    <div className="service_container">
+                </div>  
+                <div className="service_container">
                         <div className="services">
                             <div className="services_text">
                                <div className="bars"></div> TURNING IDEAS INTO <div className='bar'></div> WEB EXPERIENCES <div className="bar"></div>
@@ -194,10 +195,9 @@ useGSAP(() =>{
                             </div>
                         </div>
                     </div>
-                </div>  
                 <div className="begin"></div>
                 <div className='trigger'></div>
-                <div className="another_section">
+                    <div className="another_section">
                         <div className='project'>
                             <span className='p'>P</span>
                             <span className='r'>R</span>
@@ -254,7 +254,7 @@ useGSAP(() =>{
                         <div className='link_container'>
                             <div className="link_contact"> <FaLocationPin/>Antananarivo Madagascar</div>
                             <div className="link_contact"> <FaEnvelope/> raphaeltsiory15@gmail.com</div>
-                            <div className="link_contact"> <FaPhone/> 034 48 967 23/</div>
+                            <div className="link_contact"> <FaPhone/> 034 48 967 23</div>
                         </div>
                     </div>
                 </div>

@@ -148,12 +148,12 @@ export default function Menu(){
                         </div>
                     </div>
                     <div className="menu_back">
-                        <div style={{fontSize:'30px'}}>
+                        <div style={{fontSize:'2.5vw'}} className="soclink">
                            <a href="https://www.linkedin.com/in/tsiory-raphaël-ravelonomenjanahary-632b47270" className="menu_link"> LinkdIn <FaArrowRight className='icon'/></a>
                             <a href="https://www.facebook.com/tsiory.raphael.907824" className="menu_link">Facebook <FaArrowRight className='icon'/></a> 
                             <a href='https://github.com/Tsiory15' className="menu_link">Github <FaArrowRight className='icon'/></a>
                         </div>
-                        <div>&copy; 2025</div>
+                        <div className="copy">&copy; 2025</div>
                     </div>
         </div>
     )

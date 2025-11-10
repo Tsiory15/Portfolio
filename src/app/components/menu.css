@@ -8,29 +8,22 @@
   grid-template-columns: repeat(2,1fr);
   background-color: var(--background);
 }
-.menu_main_container > div{
-  display: flex;
-  font-family: helvetica;
-}
 .link_container{
 overflow: hidden;
 width: fit-content;
 }
 .copyright{
   font-size: 1vw;
-  font-family: Helvetica;
-  padding:5vw;
+  padding:7.5vh 5vw;
   font-weight: bold;
+  width: 100%;
 }
 .menu_container{
   flex-direction: column;
-  /* justify-content: center; */
   margin-top: 7vh;
   z-index: 11;
-  height: 40vh;
   display: flex;
   overflow: hidden;
-  gap: 0.2rem;
 }
 .menu_back{
   overflow: hidden;
@@ -45,7 +38,7 @@ width: fit-content;
   display: grid;
   grid-template-columns: repeat(2,1fr);
 }
-.menu_back > div {
+.copy,.soclink {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -66,35 +59,34 @@ width: fit-content;
 }
 .link{
   position: relative;
-  padding: 0rem 3rem;
   height: fit-content;
   cursor: pointer;
-  font-size: 5vw;
+  font-size: 4.5vw;
   color: var(--foreground);
   font-weight: bold;
-  line-height: 8vh;
+  line-height: 3.6vw;
 }
 .link:hover{
   color: rgba(224, 224, 224, 0.637);
 }
 .close{
   position: absolute;
-  top : 20px;
-  right: 30px;
+  top : 2vw;
+  right: 3vw;
   font-size: 1.5vw;
 }
 .menu,.logo{
   z-index: 7;
   position: fixed;
   mix-blend-mode: difference;
-  right: 30px;
-  top: 20px;
-  font-size: 3vh;
+  right: 3.5vw;
+  top: 2vw;
+  font-size: 1.5vw;
   cursor: pointer;
 }
 .logo{
   right: initial;
-    left: 30px;
+  left: 3.5vw;
 }
 .txt:hover,.menu > div:hover{
   color:rgb(138, 138, 138);
@@ -115,11 +107,39 @@ width: fit-content;
   transition: 0.2s;
   color: rgb(138, 138, 138);
 }
-@media (max-width:425) {
- .menu_main_container{
+@media (max-width:475) {
+ .link{
+  line-height: 5vw;
+ }
+ .copy{
+  display: none;
+ }
+ .menu_back{
   display: flex;
+ }
+ .soclink{
+  width: 100%;
  }
  .copyright{
   display: none;
+ }
+ .link{
+  font-size: 5vh;
+  line-height: 5vh;
+ }
+ .menu_container{
+  display: flex;
+  justify-content: center;
+  padding:0 5vw;
+ }
+ .menu_main_container{
+  display: flex;
+ }
+ .menu_link{
+  font-size: 5vw;
+ }
+ .soclink{
+  justify-content: center;
+  padding: 0 5vw;
  }
 }
