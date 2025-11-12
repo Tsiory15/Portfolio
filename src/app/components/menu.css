@@ -61,10 +61,10 @@ width: fit-content;
   position: relative;
   height: fit-content;
   cursor: pointer;
-  font-size: 4.5vw;
+  font-size: 5vw;
   color: var(--foreground);
   font-weight: bold;
-  line-height: 3.6vw;
+  line-height: 4vw;
 }
 .link:hover{
   color: rgba(224, 224, 224, 0.637);

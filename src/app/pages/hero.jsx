@@ -16,7 +16,6 @@ import {FaPhone,FaLocationPin,FaEnvelope,FaChevronDown} from 'react-icons/fa6'
 export default function Hero(){
 var number = 1
 gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase,SplitText)
-// CustomEase.create('slide','0.9,0,0.1,1')
 CustomEase.create('slide','1, 0, 0.23, 1')
 CustomEase.create('hop','1, 0, 0, 1')
 useGSAP(() =>{
@@ -241,7 +240,7 @@ useGSAP(() =>{
                         })}
                     </div>
                 </div>  
-                <div className="contact_main_container" style={{marginTop:'-30vh'}}>
+                <div className="contact_main_container" style={{marginTop:'-40vh'}}>
                     <div className="contact_me">
                         CONTACT <br /> ME.
                     </div>
