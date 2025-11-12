@@ -317,6 +317,13 @@
   .title{
     font-size: 5vw;
   }
+  .talk{
+  display: none;
+ }
+ .contact_me{
+  font-size: 70px;
+  line-height: 60px;
+ }
 }
 /* @media (max-width:1020px) {
   .base_container{
