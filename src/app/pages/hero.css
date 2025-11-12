@@ -73,7 +73,7 @@
   align-items: center;
   line-height: initial;
   height: fit-content;
-  height: 20vw;
+  height: 15vw;
 }
 .services_text{
   z-index: 3;
@@ -87,13 +87,13 @@
 }
 
 .about{
-  display: grid;
-  grid-template-columns: 8fr 1fr;
+  display:flex;
   padding:0 10vw;
   font-family:Poppins;
   align-items: center;
   justify-content: center;
   position: relative;
+  text-align: justify;
 }
 .about > div{
   position: relative;
@@ -316,7 +316,7 @@
     gap: 0.8rem;
   }
   .title{
-    font-size: 4vw;
+    font-size: 5vw;
   }
 }
 /* @media (max-width:1020px) {

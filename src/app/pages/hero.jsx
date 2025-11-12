@@ -16,15 +16,16 @@ import {FaPhone,FaLocationPin,FaEnvelope,FaChevronDown} from 'react-icons/fa6'
 export default function Hero(){
 var number = 1
 gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase,SplitText)
-CustomEase.create('slide','0.9,0,0.1,1')
-
+// CustomEase.create('slide','0.9,0,0.1,1')
+CustomEase.create('slide','1, 0, 0.23, 1')
+CustomEase.create('hop','1, 0, 0, 1')
 useGSAP(() =>{
     gsap.to('.services_text',{
         xPercent:-48,
         scrollTrigger:{
             trigger:'.main_container',
-            start:'+=400',
-            end:'+=500',
+            start:'+=300',
+            end:'+=400',
             scrub:2,
         }
     })
@@ -150,7 +151,7 @@ useGSAP(() =>{
                     end:'+=200',
                 },
                 y:100,
-                stagger:0.1,
+                stagger:0.05,
                 duration:1,
             })
         }
@@ -189,9 +190,7 @@ useGSAP(() =>{
                         </div>
                         <div className="about" id='about'>
                             <div className='text'>
-                                My name is Tsiory Raphaël a web developer. Passionate about creating modern, responsive, and user-friendly websites.Skilled in HTML, CSS, Gsap, JavaScript, React, Next js and Node.js and always eager to learn new technologies to push my limits.
-                            </div>
-                            <div>
+                                My name is Tsiory Raphaël a web developer. Passionate about creating modern, responsive, and user-friendly websites. Skilled in HTML, CSS, Gsap, JavaScript, React, Next js and Node.js and always eager to learn new technologies to push my limits.
                             </div>
                         </div>
                     </div>

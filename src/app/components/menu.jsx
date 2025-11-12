@@ -31,14 +31,14 @@ export default function Menu(){
             })
             gsap.fromTo('.link',{
                yPercent:100, 
-               stagger:0.3,
+               stagger:0.2,
                ease:'slide',
             },{
                 yPercent:0,
-                stagger:0.3,
-               ease:'slide',
-               duration:0.3,
-               delay:0.7
+                stagger:0.2,
+               ease:'hop',
+               duration:0.5,
+               delay:0.9
             })
         }
     })
@@ -47,28 +47,25 @@ export default function Menu(){
         onClick:() => {
             gsap.to('.menu_container',{
                 height:'0%',
-                delay:1,
+                delay:0.1,
                 ease:'slide'
             })
             gsap.to('.menu_main_container',{
                 height:'0%',
-                delay:1,
+                delay:0.3,
                 ease:'slide'
             })
             gsap.to('.menu_back',{
                 height:'0%',
                 padding:0,
-                delay:1.4,
+                delay:1,
                 ease:'slide'
             })
             gsap.to('.link',{
                 yPercent:100,
-                stagger:{
-                    each:0.3,
-                    from:3,
-                },
                 overwrite:true,
-                 ease:'slide'
+                 ease:'hop',
+                 duration:0.5
             })
         }
     })
@@ -80,33 +77,31 @@ export default function Menu(){
         onClick:() => {
             gsap.to('.menu_container',{
                 height:'0%',
-                delay:1,
+                delay:0.1,
                  ease:'slide'
             })
             gsap.to('.menu_main_container',{
                 height:'0%',
-                delay:1,
+                delay:0.3,
                  ease:'slide'
             })
             gsap.to('.menu_back',{
                 height:'0%',
                 padding:0,
-                delay:1.4,
+                delay:1,
                  ease:'slide'
             })
             gsap.to('.link',{
                 overwrite:true,
                 yPercent:100,
-                stagger:{
-                    each:0.3,
-                    from:3,
-                },
-                ease:'slide',
+                ease:'hop',
+                duration:0.5
             })
         }
     })
     })
     Observer.create({
+        type:'wheel,touch',
         target:'.main_container',
         onDown:() => {
             gsap.to(['.menu','.logo'],{

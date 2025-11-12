@@ -81,7 +81,7 @@ width: fit-content;
   mix-blend-mode: difference;
   right: 3.5vw;
   top: 2vw;
-  font-size: 1.5vw;
+  font-size: 1.7vw;
   cursor: pointer;
 }
 .logo{
@@ -139,9 +139,13 @@ width: fit-content;
   font-size: 5vw;
  }
  .soclink{
-  justify-content: center;
   padding: 0 5vw;
  }
+ .close,.logo,.menu{
+  font-size: 2vw;
+ }
+}
+@media (max-width:768) {
  .close,.logo,.menu{
   font-size: 5vw;
  }

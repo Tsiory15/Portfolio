@@ -9,52 +9,87 @@ export default function Splash (){
        const tl = gsap.timeline()
 
        tl
-       .to('.splash_content',{
-            width:5,
-            height:'100%',
-            duration:0.5,
-            delay:0.3,
+       .to('.welcome',{
+            translateY:'75%',
+            duration:0.3,
             ease:'power1.out',
+       })
+       .to('.welcome',{
+            translateY:'50%',
+            duration:0.5,
+            delay:1,
+            ease:'power4.out',
+       })
+       .to('.welcome',{
+            translateY:'25%',
+            duration:0.5,
+            ease:'power4.out',
+            delay:0.1
+       })
+       .to('.welcome',{
+            translateY:0,
+            duration:0.5,
+            ease:'power4.out',
+            delay:0.1
+       })
+       .to('.welcome_container',{
+            width:0,
+            duration:1,
+            ease:'slide',
+            delay:1,
+            right:0
        })
        .to('.splash_content',{
             width:'100%',
-            duration:0.7,
-            delay:0.2,
+            duration:1,
             ease:'slide',
+       },'<')
+       .to('.splash_contents',{
+            width:'100%',
+            duration:1,
+            delay:0.3,
+            ease:'slide',
+       },'<')
+       .to('.welcome',{
+           display:'none'
+       },'<')
+        .to('.splash_contents',{
+        width:0,
+        duration:0.5,
+        ease:'slide',
+        left:'initial',
+        right:0
        })
-       .to('.welcome > div',{
-            yPercent:-100,
-            ease:'sine.out',
-            duration:0.7
-       })
-       .to('.welcome > div',{
-            opacity:0,
-            duration:0.5
-       })
-       .to('.splash_main_container',{
+       .to('.splash_content',{
         height:0,
         duration:0.5,
-        delay:0.3,
+        delay:0.6,
         ease:'slide',
-       })
-       .to('.splash_main_container',{
-        display:'none'
-       })
+       },'<')
        .to('.main_container',{
-        ease:'power4.out',
-        duration:5,
-        delay:0.3,
+        ease:'none',
+        duration:2,
+        delay:1,
         opacity:1,
         height:'max-content',
+       },'<')
+       .to('.splash_main_container',{
+        display:'none',
        },'<')
     },[])
     return(
         <div>
             <div className="splash_main_container">
-                <div className="splash_content">
-                    <div className="welcome">
-                        <div>Hello.</div>
+                <div className='welcome_container'>
+                    <div className="sub_container">
+                        <div className="welcome">
+                            HELLO <br /> WELCOME <br /> TO MY <br /> PORTFOLIO
+                        </div>
                     </div>
+                </div>
+                <div className="splash_content">
+                </div>
+                <div className="splash_contents">
                 </div>
             </div>
         </div>
