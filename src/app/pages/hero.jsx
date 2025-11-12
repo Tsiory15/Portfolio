@@ -14,7 +14,8 @@ import {FaPhone,FaLocationPin,FaEnvelope,FaChevronDown} from 'react-icons/fa6'
 
 
 export default function Hero(){
-var number = 1
+let number = 1
+let mm = gsap.matchMedia();
 gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase,SplitText)
 CustomEase.create('slide','1, 0, 0.23, 1')
 CustomEase.create('hop','1, 0, 0, 1')
@@ -65,8 +66,7 @@ useGSAP(() =>{
     tl.to('.project > span',{
         color:'var(--foreground)',
         ease:'power1.inOut',
-        textShadow:'15px 15px 8px rgba(0, 0, 0, 0.7)',
-        duration:0.1
+        duration:0.1,
     })
     tl.to(['.number','.grid'],{
         opacity:1
@@ -154,6 +154,11 @@ useGSAP(() =>{
                 duration:1,
             })
         }
+    })
+    mm.add('(min-width:768px)',()=>{
+        tl.to('.project > span',{
+        textShadow:'15px 15px 8px rgba(0, 0, 0, 0.7)',
+    })
     })
 },[])
     return (
