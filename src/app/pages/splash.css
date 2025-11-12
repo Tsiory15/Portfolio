@@ -33,3 +33,12 @@
     height: fit-content;
     width: fit-content;
 }
+@media (max-width:768) {
+    .welcome_container{
+        padding: 10vw;
+    }
+    .welcome{
+        font-size: 10vw;
+        line-height: 9vw;
+    }
+}

@@ -19,19 +19,19 @@ export default function Splash (){
             duration:0.5,
             delay:1,
             ease:'power4.out',
-       })
+       },'<')
        .to('.welcome',{
             translateY:'25%',
             duration:0.5,
             ease:'power4.out',
-            delay:0.1
-       })
+            delay:0.3
+       },'<')
        .to('.welcome',{
             translateY:0,
             duration:0.5,
             ease:'power4.out',
-            delay:0.1
-       })
+            delay:0.5
+       },'<')
        .to('.welcome_container',{
             width:0,
             duration:1,
