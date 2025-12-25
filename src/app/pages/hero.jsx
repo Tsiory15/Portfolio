@@ -10,7 +10,7 @@ import Menu from "../components/menu";
 import Splash from '../pages/splash'
 import { useGSAP } from '@gsap/react';
 import {FaPhone,FaLocationPin,FaEnvelope,FaChevronDown} from 'react-icons/fa6'
-
+import Link from 'next/link';
 
 
 export default function Hero(){
@@ -54,22 +54,27 @@ useGSAP(() =>{
         scrollTrigger:{
             trigger:'.trigger',
             start:'top top',
-            end:'+=2350vw',
+            end:'+=3000vw',
             toggleActions:'play reverse play reverse'
         },
     })
     tl.to('.another_section',{
-        backgroundColor:'var(--background)',
         ease:'power1.inOut',
         duration:0.1
+    })
+    tl.to('.background_changer',{
+        backgroundColor:'var(--background)',
+        duration:0.3
     })
     tl.to('.project > span',{
         color:'var(--foreground)',
         ease:'power1.inOut',
-        duration:0.1,
+        duration:0.3,
+         textShadow:'1.5vw 1.5vw 0.5vw rgba(0, 0, 0, 0.7)'
     })
     tl.to(['.number','.grid'],{
-        opacity:1
+        opacity:1,
+        duration:0.1
     })
     gsap.to('.pj',{
         scrollTrigger:{
@@ -117,14 +122,14 @@ useGSAP(() =>{
         ease:'power4.out'
     },'<')
     .to('.pic',{
-        yPercent:100,
-        duration:3,
+        yPercent:60,
+        duration:5,
         ease:'power3.out'
     },'<')
     .to('.pic2',{
-        yPercent:-60,
-        duration:7,
-        ease:'power3.out'
+        yPercent:-40,
+        duration:5,
+        ease:'power3.out',
     },'<')
     .to('.scroll',{
         yPercent:-100,
@@ -150,15 +155,10 @@ useGSAP(() =>{
                     end:'+=200',
                 },
                 y:100,
-                stagger:0.05,
-                duration:1,
+                stagger:0.01,
+                duration:1.5,
             })
         }
-    })
-    mm.add('(min-width:768px)',()=>{
-        tl.to('.project > span',{
-        textShadow:'15px 15px 8px rgba(0, 0, 0, 0.7)',
-    })
     })
 },[])
     return (
@@ -175,7 +175,8 @@ useGSAP(() =>{
                             alt=''
                             className='image'
                             />
-                        </div><div className="pic2 intropic">
+                        </div>
+                        <div className="pic2 intropic">
                                <Image
                             src={Pic2}
                             alt=''
@@ -186,6 +187,7 @@ useGSAP(() =>{
                         <span className='scroll'><FaChevronDown/></span>
                     </div>
                 </div>  
+                <div className="background_changer">
                 <div className="service_container">
                         <div className="services">
                             <div className="services_text">
@@ -245,7 +247,8 @@ useGSAP(() =>{
                         })}
                     </div>
                 </div>  
-                <div className="contact_main_container" style={{marginTop:'-40vh'}}>
+                
+                <div className="contact_main_container">
                     <div className="contact_me">
                         CONTACT <br /> ME.
                     </div>
@@ -260,6 +263,7 @@ useGSAP(() =>{
                             <div className="link_contact"> <FaPhone/> 034 48 967 23</div>
                         </div>
                     </div>
+                </div>
                 </div>
                 </div>
             </div>     

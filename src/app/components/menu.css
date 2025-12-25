@@ -31,7 +31,7 @@ width: fit-content;
   z-index: 8;
   position: fixed;
   width: 100%;
-  background-color:var(--foreground);
+  backdrop-filter: blur(1px);
   bottom: 0;
   font-size: 7vw;
   font-weight: bold;
@@ -39,11 +39,11 @@ width: fit-content;
   grid-template-columns: repeat(2,1fr);
 }
 .copy,.soclink {
+  position: absolute;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  color: var(--background);
-  padding: 3rem;
+  color: var(--foreground);
+  gap: 1.5vw;
+  bottom: 5vh;
 }
 .menu_back,.menu_container,.menu_main_container{
   height: 0;
@@ -96,18 +96,24 @@ width: fit-content;
   align-items: center;
   cursor: pointer;
   width: fit-content;
+  font-weight: lighter;
+  text-decoration: underline;
+  font-family: Poppins;
 }
 .icon{
-  color: var(--background);
+  color: var(--foreground);
   transform: rotate(-40deg);
   transition: 0.2s;
 }
-.menu_link:hover .icon{
+.menu_link:hover,.icon:hover{
   transform: rotate(0);
   transition: 0.2s;
   color: rgb(138, 138, 138);
 }
 @media (max-width:1024px) {
+  .menu_back div:first-child{
+    padding: 0 5vw;
+  }
  .link{
   line-height: 5vw;
  }

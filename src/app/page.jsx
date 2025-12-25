@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import Hero from './pages/hero'
-
 export default function Home() {
+  
   const scrollRef = useRef(null)
   useEffect(() => {
     (async () => {

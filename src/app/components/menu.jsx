@@ -21,7 +21,8 @@ export default function Menu(){
                 padding:'4rem 0',
                 duration:0.5,
                 delay:0.3,
-                ease:'slide'
+                ease:'slide',
+                backgroundColor:'rgba(0, 0, 0, 0.356)',
             })
             gsap.to('.menu_main_container',{
                 height:'40vh',
@@ -30,7 +31,7 @@ export default function Menu(){
                 ease:'slide'
             })
             gsap.fromTo('.link',{
-               yPercent:100, 
+               yPercent:110, 
                stagger:0.2,
                ease:'slide',
             },{
@@ -124,7 +125,7 @@ export default function Menu(){
     const navigate = (link) => {
     gsap.to(window,{
             scrollTo:document.querySelector(link),
-            duration:0.5
+            duration:2
         })
 }
     return(
@@ -134,6 +135,11 @@ export default function Menu(){
                     <div className="menu_main_container">
                         <div className="copyright">
                         RAPHAEL <br /> WEB DEVELOPER
+                        <div style={{fontSize:'1.2vw'}} className="soclink">
+                           <a href="https://www.linkedin.com/in/tsiory-raphaël-ravelonomenjanahary-632b47270" className="menu_link"> LinkdIn <FaArrowRight className='icon'/></a>
+                            <a href="https://www.facebook.com/tsiory.raphael.907824" className="menu_link">Facebook <FaArrowRight className='icon'/></a> 
+                            <a href='https://github.com/Tsiory15' className="menu_link">Github <FaArrowRight className='icon'/></a>
+                        </div>
                         </div>
                         <div className="menu_container">
                             <span className='close'>CLOSE</span>
@@ -143,12 +149,6 @@ export default function Menu(){
                         </div>
                     </div>
                     <div className="menu_back">
-                        <div style={{fontSize:'2.5vw'}} className="soclink">
-                           <a href="https://www.linkedin.com/in/tsiory-raphaël-ravelonomenjanahary-632b47270" className="menu_link"> LinkdIn <FaArrowRight className='icon'/></a>
-                            <a href="https://www.facebook.com/tsiory.raphael.907824" className="menu_link">Facebook <FaArrowRight className='icon'/></a> 
-                            <a href='https://github.com/Tsiory15' className="menu_link">Github <FaArrowRight className='icon'/></a>
-                        </div>
-                        <div className="copy">&copy; 2025</div>
                     </div>
         </div>
     )

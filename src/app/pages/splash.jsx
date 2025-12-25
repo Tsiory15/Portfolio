@@ -68,14 +68,14 @@ export default function Splash (){
        },'<')
        .to('.main_container',{
         ease:'none',
-        duration:2,
+        duration:1,
         delay:1,
         opacity:1,
         height:'max-content',
        },'<')
        .to('.splash_main_container',{
         display:'none',
-       },'<')
+       })
     },[])
     return(
         <div>
