@@ -4,8 +4,10 @@ import './hero.css'
 import gsap from "gsap";
 import { ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase,SplitText} from "gsap/all";
 import Image from 'next/image';
-import Pic from '../../../public/Leonardo_Phoenix_10_A_person_with_a_futuristic_and_focused_exp_2.jpg'
-import Pic2 from '../../../public/Leonardo_Phoenix_10_A_person_with_a_futuristic_and_focused_exp_3.jpg'
+import intropic from '../../../public/Leonardo_Phoenix_10_A_person_with_a_futuristic_and_focused_exp_2.jpg'
+import intropic1 from '../../../public/Leonardo_Phoenix_10_A_person_with_a_futuristic_and_focused_exp_3.jpg'
+import Pic from '../../../public/website.jpeg'
+import Pic2 from '../../../public/mobileapp.jpeg'
 import Menu from "../components/menu";
 import Splash from '../pages/splash'
 import { useGSAP } from '@gsap/react';
@@ -171,14 +173,14 @@ useGSAP(() =>{
                     <div className="intro">
                         <div className="pic intropic">
                                <Image
-                            src={Pic}
+                            src={intropic}
                             alt=''
                             className='image'
                             />
                         </div>
                         <div className="pic2 intropic">
                                <Image
-                            src={Pic2}
+                            src={intropic1}
                             alt=''
                             className='image'
                             />
