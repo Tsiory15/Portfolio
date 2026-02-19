@@ -15,7 +15,7 @@
     font-family: helvetica;
     color: var(--foreground);
     font-size:6vw;
-    line-height: 4.7vw;
+    line-height: 4.8vw;
     transform: translateY(100%);
     overflow: hidden;
 }
@@ -41,7 +41,7 @@
     }
     .welcome{
         font-size: 10vw;
-        line-height: 9vw;
+        line-height: 10vw;
     }
 }
 @media (max-width:1024) {

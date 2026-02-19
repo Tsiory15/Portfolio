@@ -12,16 +12,17 @@ import Menu from "../components/menu";
 import Splash from '../pages/splash'
 import { useGSAP } from '@gsap/react';
 import {FaPhone,FaLocationPin,FaEnvelope,FaChevronDown} from 'react-icons/fa6'
-import Link from 'next/link';
-
+import { useRef } from 'react';
 
 export default function Hero(){
 let number = 1
-let mm = gsap.matchMedia();
 gsap.registerPlugin(ScrollTrigger,Draggable,Observer,ScrollToPlugin,CustomEase,SplitText)
 CustomEase.create('slide','1, 0, 0.23, 1')
 CustomEase.create('hop','1, 0, 0, 1')
+const back = useRef()
+const trigger = useRef()
 useGSAP(() =>{
+    ScrollTrigger.refresh()
     gsap.to('.services_text',{
         xPercent:-48,
         scrollTrigger:{
@@ -31,7 +32,7 @@ useGSAP(() =>{
             scrub:2,
         }
     })
-    gsap.to('.back',{
+    gsap.to(back.current,{
         scrollTrigger:{
             trigger:'.another_section',
             start:'top top',
@@ -43,21 +44,23 @@ useGSAP(() =>{
         duration:1,
         ease:'none',
     })
-    gsap.to('.back',{
+    gsap.to(back.current,{
         scrollTrigger:{
-            trigger:'.trigger',
+            trigger:trigger.current,
             start:'top top',
-            end:'+=2500',
+            end:'-500 bottom',
+            endTrigger:'.contact_me',
             toggleActions:'play reverse play reverse',
         },
         opacity:1
     })
     const tl = gsap.timeline({
         scrollTrigger:{
-            trigger:'.trigger',
+            trigger:trigger.current,
             start:'top top',
-            end:'+=3000vw',
-            toggleActions:'play reverse play reverse'
+            end:'-500 bottom',
+            endTrigger:'.contact_me',
+            toggleActions:'play reverse play reverse',
         },
     })
     tl.to('.another_section',{
@@ -65,11 +68,11 @@ useGSAP(() =>{
         duration:0.1
     })
     tl.to('.background_changer',{
-        backgroundColor:'var(--background)',
+        backgroundColor:'rgba(19, 19, 19, 1)',
         duration:0.3
     })
     tl.to('.project > span',{
-        color:'var(--foreground)',
+        color:'rgba(230, 230, 230, 1)',
         ease:'power1.inOut',
         duration:0.3,
          textShadow:'1.5vw 1.5vw 0.5vw rgba(0, 0, 0, 0.7)'
@@ -82,7 +85,8 @@ useGSAP(() =>{
         scrollTrigger:{
             trigger:'.trigger',
             start:'top top',
-            end:'+=4100',
+            endTrigger:'.contact_me',
+            end:'top bottom',
             scrub:3,
             pin:true,
             pinSpacing:false,
@@ -158,7 +162,7 @@ useGSAP(() =>{
                 },
                 y:100,
                 stagger:0.01,
-                duration:1.5,
+                duration:1.3,
             })
         }
     })
@@ -171,18 +175,20 @@ useGSAP(() =>{
                 <Menu/>
                 <div className="hero_section">
                     <div className="intro">
-                        <div className="pic intropic">
+                        <div className="pic intropic itext">
                                <Image
                             src={intropic}
-                            alt=''
+                            alt='introImage'
                             className='image'
+                            loading='eager'
                             />
                         </div>
-                        <div className="pic2 intropic">
+                        <div className="pic2 intropic itext">
                                <Image
                             src={intropic1}
-                            alt=''
+                            alt='introImage'
                             className='image'
+                            loading='eager'
                             />
                         </div>
                         <span className='introtexte'><span className='itext think'>THINK.</span><span className='code itext'> CODE. </span><span className='deploy itext'>DEPLOY.</span><span className='repeat itext'>REPEAT.</span></span>
@@ -203,7 +209,7 @@ useGSAP(() =>{
                         </div>
                     </div>
                 <div className="begin"></div>
-                <div className='trigger'></div>
+                <div className='trigger' ref={trigger}></div>
                     <div className="another_section">
                         <div className='project'>
                             <span className='p'>P</span>
@@ -216,7 +222,7 @@ useGSAP(() =>{
                             <span className='s'>S</span>
                         <div className="project1 pj">
                             <div className="card">
-                                <p className='title'>E-learning website</p>
+                                <p className='title'>Zarahay doctorant</p>
                             </div>
                                 <Image
                                 src={Pic}
@@ -231,11 +237,11 @@ useGSAP(() =>{
                             className='images'
                             />
                              <div className="card">
-                                <p className='title'>Mobile App</p>
+                                <p className='title'>Relaxation App</p>
                             </div>
                         </div>
                     </div>
-                    <div className="back">
+                    <div className="back" ref={back}>
                         {[...Array(5)].map((_,index)=>{
                             return(
                             <div className='section' key={index}>

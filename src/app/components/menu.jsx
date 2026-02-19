@@ -34,12 +34,14 @@ export default function Menu(){
                yPercent:110, 
                stagger:0.2,
                ease:'slide',
+               opacity:0
             },{
                 yPercent:0,
                 stagger:0.2,
                ease:'hop',
                duration:0.5,
-               delay:0.9
+               delay:0.9,
+               opacity:1
             })
         }
     })
@@ -63,7 +65,8 @@ export default function Menu(){
                 ease:'slide'
             })
             gsap.to('.link',{
-                yPercent:100,
+                // yPercent:100,
+                opacity:0,
                 overwrite:true,
                  ease:'hop',
                  duration:0.5
