@@ -109,7 +109,7 @@ useGSAP(() =>{
         }
     })
     intro.to('.think',{
-        xPercent:-30,
+        xPercent:30,
         duration:1,
         ease:'power4.out',
     })
@@ -119,12 +119,12 @@ useGSAP(() =>{
         ease:'power4.out',
     },'<')
     .to('.deploy',{
-        xPercent:-80,
+        xPercent:40,
         duration:1,
         ease:'power4.out',
     },'<')
     .to('.repeat',{
-        xPercent:-10,
+        xPercent:-60,
         duration:1,
         ease:'power4.out',
     },'<')
