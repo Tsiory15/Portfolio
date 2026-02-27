@@ -294,6 +294,18 @@
     height: 60vh;
     width: 25vw;
   }
+  .contact_main_container{
+    grid-template-rows: repeat(2,1fr);
+  }
+  .contact_me{
+    align-items: center;
+  }
+  .link_contact{
+    font-size: 5vw;
+  }
+  .another_container{
+    align-items: center;
+  }
 }
 @media (max-width:768px) {
   .intropic{
@@ -318,7 +330,7 @@
     align-items: baseline;
   }
   .link_contact{
-    font-size: 6vw;
+    font-size: 3.5vw;
     gap: 0.8rem;
   }
   .title{
