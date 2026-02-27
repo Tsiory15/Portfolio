@@ -3,17 +3,20 @@ import gsap from 'gsap'
 import './splash.css'
 import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
+import { useRouter } from 'next/navigation'
+import { CustomEase } from 'gsap/all'
 
 export default function Splash (){
+    gsap.registerPlugin(CustomEase)
     const welcome = useRef()
     const welcome_container = useRef()
     const splash_content = useRef()
     const splash_contents = useRef()
     const splash_main_container = useRef()
     useGSAP(()=>{
-        window.scrollTo(0,0)
+        CustomEase.create('slide','1, 0, 0.23, 1')
+        CustomEase.create('hop','1, 0, 0, 1')
        const tl = gsap.timeline()
-
        tl
        .to(welcome.current,{
             translateY:'75%',
@@ -63,7 +66,7 @@ export default function Splash (){
         left:'initial',
         right:0,
         onComplete:()=>{
-            gsap.to(['.splash_contents','welcome_container'],{
+            gsap.to([splash_contents.current,welcome_container.current],{
         display:'none'
        })
         }
@@ -71,7 +74,7 @@ export default function Splash (){
        .to(splash_content.current,{
         height:0,
         duration:0.5,
-        delay:0.6,
+        delay:0.4,
         opacity:1,
         ease:'slide',
        },'<')
@@ -88,7 +91,7 @@ export default function Splash (){
         opacity:0,
         y:'10px',
        },'<')
-       .to('.splash_main_container',{
+       .to(splash_main_container.current,{
         display:'none',
        })
     },[])

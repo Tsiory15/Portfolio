@@ -96,10 +96,10 @@ export default function Menu(){
                  ease:'slide'
             })
             gsap.to('.link',{
+              opacity:0,
                 overwrite:true,
-                yPercent:100,
-                ease:'hop',
-                duration:0.5
+                 ease:'hop',
+                 duration:0.5
             })
         }
     })

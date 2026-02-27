@@ -21,12 +21,16 @@ CustomEase.create('slide','1, 0, 0.23, 1')
 CustomEase.create('hop','1, 0, 0, 1')
 const back = useRef()
 const trigger = useRef()
+const service_text = useRef()
+const background_changer = useRef()
+const another_section = useRef()
+const main_container = useRef()
 useGSAP(() =>{
     ScrollTrigger.refresh()
-    gsap.to('.services_text',{
+    gsap.to(service_text.current,{
         xPercent:-48,
         scrollTrigger:{
-            trigger:'.main_container',
+            trigger:main_container.current,
             start:'+=300',
             end:'+=400',
             scrub:2,
@@ -34,7 +38,7 @@ useGSAP(() =>{
     })
     gsap.to(back.current,{
         scrollTrigger:{
-            trigger:'.another_section',
+            trigger:another_section.current,
             start:'top top',
             end:'+=3300vw',
             scrub:1,
@@ -63,11 +67,11 @@ useGSAP(() =>{
             toggleActions:'play reverse play reverse',
         },
     })
-    tl.to('.another_section',{
+    tl.to(another_section.current,{
         ease:'power1.inOut',
         duration:0.1
     })
-    tl.to('.background_changer',{
+    tl.to(background_changer.current,{
         backgroundColor:'rgba(19, 19, 19, 1)',
         duration:0.3
     })
@@ -81,20 +85,21 @@ useGSAP(() =>{
         opacity:1,
         duration:0.1
     })
-    gsap.to('.pj',{
+    const projecttl = gsap.timeline({
         scrollTrigger:{
-            trigger:'.trigger',
+            trigger:trigger.current,
             start:'top top',
             endTrigger:'.contact_me',
             end:'top bottom',
             scrub:3,
             pin:true,
             pinSpacing:false,
-        },
-          x:() => -(document.querySelector('.another_section').scrollWidth - document.documentElement.clientWidth)+'px',
-        duration:1,
-        ease:'none',
+        }
     })
+    projecttl.to('.pj',{
+    x:() => -(document.querySelector('.another_section').scrollWidth - document.documentElement.clientWidth)+'px',
+    duration:1,
+    ease:'none',})
     const intro = gsap.timeline({
         scrollTrigger:{
             trigger:'.intro',
@@ -104,28 +109,24 @@ useGSAP(() =>{
         }
     })
     intro.to('.think',{
-        xPercent:80,
-        opacity:0,
+        xPercent:-30,
         duration:1,
         ease:'power4.out',
     })
     .to('.code',{
         xPercent:-40,
-        opacity:0,
         duration:1,
-        ease:'power4.out'
+        ease:'power4.out',
     },'<')
     .to('.deploy',{
-        xPercent:40,
-        opacity:0,
+        xPercent:-80,
         duration:1,
-        ease:'power4.out'
+        ease:'power4.out',
     },'<')
     .to('.repeat',{
-        xPercent:-40,
-        opacity:0,
+        xPercent:-10,
         duration:1,
-        ease:'power4.out'
+        ease:'power4.out',
     },'<')
     .to('.pic',{
         yPercent:60,
@@ -141,6 +142,9 @@ useGSAP(() =>{
         yPercent:-100,
         ease:'power3.out',
         opacity:0
+    },'<')
+    .to('.introtexte',{
+        width:0
     },'<')
     gsap.to('.scroll',{
         y:'-=10',
@@ -171,7 +175,7 @@ useGSAP(() =>{
         <div>
             <Splash/>
             <div className="base_container">Sorry it's not available yet for this type of device try using a computer pls</div>
-            <div className= "main_container">
+            <div className= "main_container" ref={main_container}>
                 <Menu/>
                 <div className="hero_section">
                     <div className="intro">
@@ -195,10 +199,10 @@ useGSAP(() =>{
                         <span className='scroll'><FaChevronDown/></span>
                     </div>
                 </div>  
-                <div className="background_changer">
+                <div className="background_changer" ref={background_changer}>
                 <div className="service_container">
                         <div className="services">
-                            <div className="services_text">
+                            <div className="services_text" ref={service_text}>
                                <div className="bars"></div> TURNING IDEAS INTO <div className='bar'></div> WEB EXPERIENCES <div className="bar"></div>
                             </div>
                         </div>
@@ -210,7 +214,7 @@ useGSAP(() =>{
                     </div>
                 <div className="begin"></div>
                 <div className='trigger' ref={trigger}></div>
-                    <div className="another_section">
+                    <div className="another_section" ref={another_section}>
                         <div className='project'>
                             <span className='p'>P</span>
                             <span className='r'>R</span>
@@ -221,20 +225,22 @@ useGSAP(() =>{
                             <span className='t'>T</span>
                             <span className='s'>S</span>
                         <div className="project1 pj">
-                            <div className="card">
-                                <p className='title'>Zarahay doctorant</p>
-                            </div>
                                 <Image
                                 src={Pic}
                                 alt=''
                                 className='images'
+                                loading='eager'
                                 />
+                                <div className="card">
+                                <p className='title'>Zarahay doctorant</p>
+                            </div>
                         </div>
                        <div className="project2 pj">
                         <Image
                             src={Pic2}
                             alt=''
                             className='images'
+                            loading='eager'
                             />
                              <div className="card">
                                 <p className='title'>Relaxation App</p>
@@ -255,7 +261,6 @@ useGSAP(() =>{
                         })}
                     </div>
                 </div>  
-                
                 <div className="contact_main_container">
                     <div className="contact_me">
                         CONTACT <br /> ME.
