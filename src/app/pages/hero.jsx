@@ -9,10 +9,12 @@ import intropic1 from '../../../public/Leonardo_Phoenix_10_A_person_with_a_futur
 import Pic from '../../../public/website.jpeg'
 import Pic2 from '../../../public/mobileapp.jpeg'
 import Menu from "../components/menu";
-import Splash from '../pages/splash'
 import { useGSAP } from '@gsap/react';
 import {FaPhone,FaLocationPin,FaEnvelope,FaChevronDown} from 'react-icons/fa6'
 import { useRef } from 'react';
+import {animate} from '../components/transition'
+import { useRouter } from 'next/navigation';
+import { FaArrowRight } from 'react-icons/fa';
 
 export default function Hero(){
 let number = 1
@@ -108,43 +110,46 @@ useGSAP(() =>{
             scrub:2,
         }
     })
-    intro.to('.think',{
+       intro.to('.think',{
         xPercent:30,
+        opacity:0,
         duration:1,
         ease:'power4.out',
     })
     .to('.code',{
         xPercent:-40,
+        opacity:0,
         duration:1,
         ease:'power4.out',
     },'<')
     .to('.deploy',{
         xPercent:40,
+        opacity:0,
         duration:1,
         ease:'power4.out',
     },'<')
     .to('.repeat',{
         xPercent:-60,
+        opacity:0,
         duration:1,
         ease:'power4.out',
     },'<')
     .to('.pic',{
         yPercent:60,
         duration:5,
+        opacity:0,
         ease:'power3.out'
     },'<')
     .to('.pic2',{
         yPercent:-40,
         duration:5,
+        opacity:0,
         ease:'power3.out',
     },'<')
     .to('.scroll',{
         yPercent:-100,
         ease:'power3.out',
         opacity:0
-    },'<')
-    .to('.introtexte',{
-        width:0
     },'<')
     gsap.to('.scroll',{
         y:'-=10',
@@ -171,9 +176,9 @@ useGSAP(() =>{
         }
     })
 },[])
+const router = useRouter()
     return (
         <div>
-            <Splash/>
             <div className="base_container">Sorry it's not available yet for this type of device try using a computer pls</div>
             <div className= "main_container" ref={main_container}>
                 <Menu/>
@@ -195,7 +200,9 @@ useGSAP(() =>{
                             loading='eager'
                             />
                         </div>
-                        <span className='introtexte'><span className='itext think'>THINK.</span><span className='code itext'> CODE. </span><span className='deploy itext'>DEPLOY.</span><span className='repeat itext'>REPEAT.</span></span>
+                        <span className='introtexte'>
+                            <span className='itext think'>THINK.</span><span className='code itext'> CODE. </span><span className='deploy itext'>DEPLOY.</span><span className='repeat itext'>REPEAT.</span>
+                        </span>
                         <span className='scroll'><FaChevronDown/></span>
                     </div>
                 </div>  
@@ -209,6 +216,11 @@ useGSAP(() =>{
                         <div className="about" id='about'>
                             <div className='text'>
                                 My name is Tsiory Raphaël a web developer. Passionate about creating modern, responsive, and user-friendly websites. Skilled in HTML, CSS, Gsap, JavaScript, React, Next js and Node.js and always eager to learn new technologies to push my limits.
+                                <span style={{display:'flex',alignItems:'center',justifyContent:'flex-end',margin:'2rem 0',fontSize:'2vw'}} className='learn'>
+                                    <br />
+                                   <a href="/cv.pdf" target='_blank' rel='noopener noreferrer' className='learn_link'> Learn more<FaArrowRight size={23} className='learn_icon'/></a>
+                                </span>
+                                
                             </div>
                         </div>
                     </div>
@@ -224,7 +236,7 @@ useGSAP(() =>{
                             <span className='c'>C</span>
                             <span className='t'>T</span>
                             <span className='s'>S</span>
-                        <div className="project1 pj">
+                        <div className="project1 pj" onClick={()=>animate(router,'project1')}>
                                 <Image
                                 src={Pic}
                                 alt=''
@@ -235,7 +247,7 @@ useGSAP(() =>{
                                 <p className='title'>Zarahay doctorant</p>
                             </div>
                         </div>
-                       <div className="project2 pj">
+                       <div className="project2 pj" onClick={()=>animate(router,'project2')}>
                         <Image
                             src={Pic2}
                             alt=''
@@ -266,7 +278,7 @@ useGSAP(() =>{
                         CONTACT <br /> ME.
                     </div>
                 <div className="another_container">
-                    <div className="talk" style={{fontSize:'3.5vw',lineHeight:'3.5vw'}}>
+                    <div className="talk" style={{fontSize:'3.5vw',lineHeight:'3.5vw',color:'rgb(236, 236, 236)'}}>
                         Let's Talk !
                     </div>
                     <div className="contact_container">
@@ -275,6 +287,9 @@ useGSAP(() =>{
                             <div className="link_contact"> <FaEnvelope/> raphaeltsiory15@gmail.com</div>
                             <div className="link_contact"> <FaPhone/> 034 48 967 23</div>
                         </div>
+                    </div>
+                     <div className="copyr">
+                            copyright &copy; 2025
                     </div>
                 </div>
                 </div>

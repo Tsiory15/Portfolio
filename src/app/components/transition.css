@@ -1,0 +1,27 @@
+.transition{
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  height: 100vh;
+  width: 100vw;
+  z-index: 20;
+  top: 0;
+  pointer-events: none;
+}
+.transitions{
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  height: 100vh;
+  width: 100vw;
+  z-index: 20;
+  top: 0;
+  pointer-events: none;
+}
+.divs{
+    position: absolute;
+    width: 0;
+  height: 100%;
+  left: 0;
+  background-color: var(--foreground);
+}

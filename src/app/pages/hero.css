@@ -5,8 +5,7 @@
   position: relative;
   overflow: hidden;
   background-color: var(--foreground);
-  opacity: 0;
-  height: 0;
+  height: max-content;
 }
 .hero_section{
   height: 100vh;  
@@ -36,7 +35,6 @@
   height: 100%;
   mix-blend-mode: difference;
   align-items: center;
-  overflow: hidden;
 }
 .pic{
   top: 10%;
@@ -131,6 +129,9 @@
   opacity: 1;
   width: max-content;
 }
+.itext{
+  color: rgb(236, 236, 236);
+}
 .another_section{
   position: relative;
   height: 100vh;
@@ -194,6 +195,7 @@
   position: absolute;
   height: 60vh;
   width: 25vw;
+  cursor: pointer;
 }
 .layer{
   height: 550;
@@ -355,4 +357,25 @@
   height: 0;
   width: 20%;
   background-color: var(--foreground);
+}
+.copyr{
+  position: absolute;
+  bottom: 50;
+  width:fit-content;
+  color: rgba(99, 99, 99, 0.664);
+  right: 50;
+  font-size: 1.3vw;
+}
+.learn_link{
+    display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: fit-content;
+  font-family: Poppins;
+  gap: 0.5rem;
+  color: rgb(138, 138, 138);
+}
+.learn_link:hover,.learn_icon:hover{
+  transition: 0.2s;
+  color: rgb(43, 42, 42);
 }

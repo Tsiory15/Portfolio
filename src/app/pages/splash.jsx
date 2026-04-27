@@ -3,7 +3,6 @@ import gsap from 'gsap'
 import './splash.css'
 import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
-import { useRouter } from 'next/navigation'
 import { CustomEase } from 'gsap/all'
 
 export default function Splash (){
@@ -78,12 +77,12 @@ export default function Splash (){
         opacity:1,
         ease:'slide',
        },'<')
-       .to('.main_container',{
+       .from('.main_container',{
         ease:'power3.out',
         duration:0.5,
         delay:0.3,
-        opacity:1,
-        height:'max-content',
+        opacity:0,
+        height:0,
        },'<')
        .from(['.intropic','.logo','.menu','.logo','.itext'],{
         ease:'power3.Out',

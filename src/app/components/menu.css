@@ -12,11 +12,15 @@
 overflow: hidden;
 width: fit-content;
 }
+.logotxt,.menu{
+  color: rgb(240, 240, 240);
+}
 .copyright{
   font-size: 1vw;
   padding:7.5vh 5vw;
   font-weight: bold;
   width: 100%;
+  color: var(--foreground);
 }
 .menu_container{
   flex-direction: column;
@@ -53,6 +57,7 @@ width: fit-content;
 }
 .close{
   cursor: pointer;
+  color: var(--foreground);
 }
 .menu:hover,.close:hover{
   color: rgba(224, 224, 224, 0.637);
@@ -65,6 +70,7 @@ width: fit-content;
   color: var(--foreground);
   font-weight: bold;
   line-height: 4vw;
+  font-family: helvetica;
 }
 .link:hover{
   color: rgba(224, 224, 224, 0.637);
